@@ -1,604 +1,2791 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="white">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ensol — Electrical & Solar Systems</title>
-<style>
-  :root{
-    --bg:#07090a;
-    --ink:#0d120e;
-    --ink-2:#111c13;
-    --ink-3:#182a1b;
-    --lime:#c6ff4a;
-    --lime-soft:#e8ffae;
-    --lime-deep:#5f8a24;
-    --text:#f3f6ec;
-    --text-soft:#98a693;
-    --line:rgba(243,246,236,0.14);
-    --r-sm:10px;
-    --r-md:22px;
-    --r-full:999px;
-    --maxw:1240px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;background:var(--bg);color:var(--text-soft);
-    font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:16px;line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.display{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-weight:600;letter-spacing:-0.01em;margin:0;color:var(--text);}
-  .mono{font-family:'Calibri','Carlito','Segoe UI',sans-serif;letter-spacing:0.06em;}
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
-  @media (max-width:640px){.wrap{padding:0 20px;}}
-  :focus-visible{outline:2px solid var(--lime);outline-offset:3px;}
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galen House Medical Centre — Bulawayo | Your Health Is Our Priority</title>
+  <meta name="description"
+    content="Galen House Medical Centre, Bulawayo — one-stop private medical facility offering doctor consultations, X-ray, CT/MRI, laboratory, physiotherapy, baby clinic, women's clinic, and overnight admissions. Open 24 hours, every day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --bg-alt: #F3F8FC;
+      --surface: #FFFFFF;
+      --surface-raised: #FFFFFF;
+      --text: #0A2540;
+      --text-muted: #51677F;
+      --brand-blue: #0B5FA5;
+      --brand-blue-strong: #08406F;
+      --brand-navy: #0A2540;
+      --accent-green: #1B9C6E;
+      --accent-red: #E0473E;
+      --border: #E2EAF2;
+      --shadow: 0 20px 45px -25px rgba(10, 37, 64, .35);
+      --pill-bg: rgba(11, 95, 165, .08);
+      --hero-grad: radial-gradient(120% 120% at 8% 0%, #EAF4FD 0%, #FFFFFF 45%, #FFFFFF 100%);
+      --nav-bg: rgba(255, 255, 255, .82);
+      --toggle-track: #E2EAF2;
+      --toggle-thumb: #0B5FA5;
+      --footer-bg: #0A2540;
+      --footer-text: #C9D9EA;
+      --code-bg: #F3F8FC;
+      --transition-theme: background-color .5s ease, color .5s ease, border-color .5s ease, box-shadow .5s ease;
+    }
 
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--lime-deep);margin-bottom:14px;}
-  .eyebrow::before{content:"";width:16px;height:1px;background:var(--lime-deep);}
-  .eyebrow.on-dark{color:var(--lime);}
-  .eyebrow.on-dark::before{background:var(--lime);}
+    html[data-theme="blue"] {
+      --bg: #0A2A4D;
+      --bg-alt: #0D3562;
+      --surface: #0E3868;
+      --surface-raised: #123F72;
+      --text: #F3F8FC;
+      --text-muted: #B7CBE3;
+      --brand-blue: #63B0EE;
+      --brand-blue-strong: #9ED0F7;
+      --brand-navy: #F3F8FC;
+      --accent-green: #57DBA6;
+      --accent-red: #FF8079;
+      --border: rgba(255, 255, 255, .14);
+      --shadow: 0 20px 45px -20px rgba(0, 0, 0, .5);
+      --pill-bg: rgba(255, 255, 255, .08);
+      --hero-grad: radial-gradient(120% 120% at 8% 0%, #123F72 0%, #0A2A4D 45%, #0A2A4D 100%);
+      --nav-bg: rgba(10, 42, 77, .82);
+      --toggle-track: rgba(255, 255, 255, .18);
+      --toggle-thumb: #63B0EE;
+      --footer-bg: #071D38;
+      --footer-text: #9FB8D6;
+      --code-bg: #0D3562;
+    }
 
-  /* ---------- nav ---------- */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(7,9,10,0.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:80px;gap:24px;}
-  .logo{display:flex;align-items:center;gap:10px;font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-weight:700;font-size:19px;color:var(--text);flex:none;}
-  .logo .mark{width:28px;height:28px;flex:none;}
-  .nav-links{display:flex;align-items:center;gap:34px;font-size:14px;font-weight:500;color:var(--text);}
-  .nav-links a{position:relative;padding:4px 0;}
-  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--lime);transition:width .25s ease;}
-  .nav-links a:hover::after{width:100%;}
-  .nav-search{
-    display:flex;align-items:center;gap:10px;flex:1;max-width:260px;
-    background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r-full);
-    padding:10px 16px;color:var(--text-soft);font-size:13.5px;
-  }
-  .nav-search svg{flex:none;color:var(--lime-deep);}
-  .nav-search span{opacity:0.7;}
-  @media (max-width:960px){.nav-search{display:none;}}
-  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
-  .nav-toggle span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0;}
-  @media (max-width:860px){.nav-links{display:none;}.nav-toggle{display:block;}}
+    * {
+      box-sizing: border-box;
+    }
 
-  /* ---------- buttons ---------- */
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:var(--r-full);font-weight:500;font-size:14.5px;cursor:pointer;border:1px solid transparent;transition:transform .18s ease, background .2s ease, color .2s ease, border-color .2s ease;}
-  .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--lime);color:var(--ink);}
-  .btn-primary:hover{background:var(--lime-soft);}
-  .btn-text{padding:0;border:none;background:none;font-weight:500;font-size:14.5px;color:var(--text);display:inline-flex;align-items:center;gap:8px;}
-  .btn-text svg{transition:transform .2s ease;}
-  .btn-text:hover{color:var(--lime);}
-  .btn-text:hover svg{transform:translateX(3px);}
-  .btn-outline{border:1px solid var(--line);color:var(--text);background:transparent;border-radius:var(--r-full);padding:15px 28px;}
-  .btn-outline:hover{border-color:var(--lime);color:var(--lime);}
-  .play-btn{
-    width:56px;height:56px;border-radius:50%;flex:none;
-    background:var(--lime);color:var(--ink);
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 0 0 0 rgba(198,255,74,0.5);
-    animation:playpulse 2.4s ease-out infinite;
-  }
-  @keyframes playpulse{
-    0%{box-shadow:0 0 0 0 rgba(198,255,74,0.45);}
-    70%{box-shadow:0 0 0 16px rgba(198,255,74,0);}
-    100%{box-shadow:0 0 0 0 rgba(198,255,74,0);}
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* ================= HERO ================= */
-  .hero{position:relative;padding:56px 0 150px;overflow:hidden;}
-  .hero .wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;}
-  .hero-idx{
-    display:flex;gap:14px;align-items:flex-start;margin-bottom:6px;
-  }
-  .hero-idx .n{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:13px;color:var(--text-soft);padding-top:4px;}
-  .hero-copy h1{font-size:clamp(40px, 5.6vw, 66px);line-height:1.03;margin:0 0 22px;font-weight:500;}
-  .hero-copy h1 em{font-style:normal;color:var(--lime);font-weight:600;}
-  .hero-copy p{font-size:16.5px;color:var(--text-soft);max-width:440px;margin:0 0 34px;}
-  .hero-actions{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin-bottom:48px;}
-  .hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--line);}
-  .avatar-stack{display:flex;align-items:center;}
-  .avatar-stack .av{
-    width:36px;height:36px;border-radius:50%;border:2px solid var(--bg);
-    background:var(--ink-2);color:var(--lime);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:11px;font-weight:700;margin-left:-10px;
-  }
-  .avatar-stack .av:first-child{margin-left:0;}
-  .trust-txt .num{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-weight:700;color:var(--text);font-size:15px;}
-  .trust-txt .lbl{font-size:12.5px;color:var(--text-soft);}
-  .trust-divider{width:1px;height:34px;background:var(--line);}
-  .trust-note{display:flex;align-items:center;gap:12px;max-width:230px;}
-  .trust-note .ic{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--lime);flex:none;}
-  .trust-note p{margin:0;font-size:12px;line-height:1.4;color:var(--text-soft);}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition-theme);
+      -webkit-font-smoothing: antialiased;
+    }
 
-  .hero-media{position:relative;}
-  .hero-media .frame{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 70px -20px rgba(198,255,74,0.08), 0 30px 60px -20px rgba(0,0,0,0.6);}
-  .hero-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(35%) contrast(1.05);}
-  .hero-media .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,9,10,0) 45%, rgba(7,9,10,0.75) 100%), linear-gradient(0deg, rgba(198,255,74,0.12), rgba(198,255,74,0) 60%);}
-  .spec-card{position:absolute;left:-24px;bottom:38px;z-index:3;background:var(--ink-2);color:var(--text);padding:20px 24px;border-radius:var(--r-sm);width:180px;border:1px solid var(--line);box-shadow:0 20px 40px -12px rgba(0,0,0,0.6);}
-  .spec-card .pct{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-weight:700;font-size:30px;color:var(--lime);}
-  .spec-card .lbl{font-size:12.5px;color:var(--text-soft);margin-top:2px;}
-  .badge-chip{position:absolute;top:22px;right:-16px;z-index:3;background:var(--ink-2);border:1px solid var(--line);padding:11px 16px;border-radius:var(--r-full);display:flex;align-items:center;gap:9px;box-shadow:0 16px 30px -14px rgba(0,0,0,0.5);font-size:12.5px;font-weight:500;color:var(--text);}
-  .badge-chip .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex:none;position:relative;}
-  .badge-chip .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--lime);opacity:0.5;}
-  @media (max-width:900px){
-    .hero .wrap{grid-template-columns:1fr;}
-    .hero-media{order:-1;max-width:420px;margin:0 auto 20px;}
-    .spec-card{left:0;}.badge-chip{right:0;}
-  }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Sora', sans-serif;
+      margin: 0;
+      letter-spacing: -.01em;
+      color: var(--brand-navy);
+    }
 
-  /* diagonal cut */
-  .cut{position:relative;background:var(--ink);clip-path:polygon(0 64px, 100% 0, 100% 100%, 0 100%);margin-top:-96px;padding-top:150px;border-top:1px solid var(--line);}
-  @media (max-width:640px){.cut{clip-path:polygon(0 36px, 100% 0, 100% 100%, 0 100%);margin-top:-60px;padding-top:110px;}}
-  .coverage{display:flex;flex-wrap:wrap;gap:36px;padding-bottom:56px;border-bottom:1px solid var(--line);}
-  .coverage span{display:flex;align-items:center;gap:10px;font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12.5px;letter-spacing:0.04em;color:var(--text-soft);}
-  .coverage span svg{color:var(--lime);flex:none;}
-  .coverage span b{color:var(--text);font-weight:500;}
+    p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
 
-  .rail-section{position:relative;padding-left:56px;}
-  .rail{position:absolute;left:14px;top:0;bottom:0;width:1px;background:var(--line);}
-  .rail::before{content:"";position:absolute;left:-2.5px;top:0;width:6px;height:6px;border-radius:50%;background:var(--lime);animation:travel 5.5s linear infinite;box-shadow:0 0 10px 2px rgba(198,255,74,0.65);}
-  @keyframes travel{0%{top:0;opacity:0;}8%{opacity:1;}92%{opacity:1;}100%{top:100%;opacity:0;}}
-  .node{position:absolute;left:-42px;width:9px;height:9px;border-radius:50%;background:var(--ink);border:2px solid var(--lime);}
-  @media (max-width:760px){.rail-section{padding-left:0;}.rail,.node{display:none;}}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  /* ================= ABOUT ================= */
-  .about{background:var(--ink);padding:70px 0 100px;}
-  .about-media{position:relative;}
-  .about-media .frame{border-radius:var(--r-md);overflow:hidden;aspect-ratio:3/4;}
-  .about-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(40%) contrast(1.05);}
-  .about-tag{position:absolute;bottom:-20px;left:-20px;background:var(--lime);color:var(--ink);padding:16px 20px;border-radius:var(--r-sm);max-width:200px;}
-  .about-tag .name{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-weight:700;font-size:15.5px;}
-  .about-tag .role{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:10.5px;margin-top:3px;text-transform:uppercase;}
-  @media (max-width:900px){.about-media{max-width:360px;}.about-tag{left:0;}}
-  .about-copy h2{font-size:clamp(30px,4vw,42px);line-height:1.08;margin-bottom:20px;}
-  .about-copy p{color:var(--text-soft);font-size:16px;max-width:520px;margin-bottom:18px;}
-  .tag-pills{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
-  .tag-pills span{border:1px solid var(--line);border-radius:var(--r-full);padding:8px 18px;font-size:12.5px;color:var(--text);font-family:'Calibri','Carlito','Segoe UI',sans-serif;}
-  .about-actions{display:flex;align-items:center;gap:28px;margin-top:26px;flex-wrap:wrap;}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-  /* ================= SERVICES ================= */
-  .services{background:var(--ink);padding-bottom:110px;}
-  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap;}
-  .section-head h2{font-size:clamp(28px,3.6vw,40px);color:var(--text);line-height:1.1;}
-  .section-head p{color:var(--text-soft);font-size:15px;max-width:340px;margin:0;}
-  .arrow-nav{display:flex;gap:10px;flex:none;}
-  .arrow-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease;}
-  .arrow-btn:hover{background:var(--lime);color:var(--ink);border-color:var(--lime);}
+    .mono {
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
 
-  .svc-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none;}
-  .svc-track::-webkit-scrollbar{display:none;}
-  .svc-card{
-    scroll-snap-align:start;flex:0 0 300px;
-    background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r-md);
-    padding:38px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;
-    transition:background .2s ease, border-color .2s ease;
-  }
-  .svc-card:hover{background:var(--ink-3);border-color:var(--lime-deep);}
-  .svc-icon{width:56px;height:56px;border-radius:50%;background:var(--ink-3);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--lime);}
-  .svc-code{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:11px;color:var(--text-soft);}
-  .svc-card h3{font-size:18.5px;color:var(--text);font-weight:600;}
-  .svc-card p{font-size:14px;color:var(--text-soft);margin:0;}
-  .svc-card .lnk{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12px;color:var(--lime);display:inline-flex;align-items:center;gap:6px;}
-  @media (max-width:600px){.svc-card{flex:0 0 84%;}}
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-  /* ================= FEATURE (editorial block) ================= */
-  .feature{background:var(--bg);padding:100px 0;border-top:1px solid var(--line);}
-  .feature .wrap > h2{font-size:clamp(28px,4vw,42px);max-width:680px;margin-bottom:56px;text-transform:uppercase;line-height:1.12;}
-  .feature-grid{display:grid;grid-template-columns:auto 1.1fr 1fr;gap:44px;align-items:center;}
-  @media (max-width:900px){.feature-grid{grid-template-columns:1fr;}}
-  .feature-labels{display:flex;flex-direction:column;gap:26px;}
-  .feature-labels span{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12px;color:var(--text-soft);writing-mode:horizontal-tb;letter-spacing:0.06em;}
-  @media (max-width:900px){.feature-labels{flex-direction:row;flex-wrap:wrap;gap:20px;}}
-  .feature-img{border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3;}
-  .feature-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(45%) contrast(1.05);}
-  .feature-copy h3{font-size:22px;margin-bottom:14px;line-height:1.25;}
-  .feature-copy p{font-size:14.5px;color:var(--text-soft);margin-bottom:18px;}
-  .feature-meta{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12px;color:var(--text-soft);}
-  .feature-meta b{color:var(--text);font-weight:500;}
+    section {
+      position: relative;
+    }
 
-  /* ================= PROCESS ================= */
-  .process{background:var(--ink);padding:100px 0;border-top:1px solid var(--line);}
-  .proc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:50px;}
-  @media (max-width:800px){.proc-grid{grid-template-columns:1fr;}}
-  .proc-step{padding:0 32px 0 0;position:relative;}
-  .proc-step + .proc-step{border-left:1px solid var(--line);padding-left:32px;}
-  @media (max-width:800px){.proc-step + .proc-step{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:32px;margin-top:32px;}}
-  .proc-step .idx{font-family:'Calibri','Carlito','Segoe UI',sans-serif;color:var(--lime);font-size:13px;margin-bottom:16px;display:block;}
-  .proc-step h3{font-size:20px;margin-bottom:10px;color:var(--text);}
-  .proc-step p{color:var(--text-soft);font-size:14.5px;margin:0;}
+    ::selection {
+      background: var(--brand-blue);
+      color: #fff;
+    }
 
-  /* ================= STATS ================= */
-  .stats{background:var(--ink-2);padding:56px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
-  @media (max-width:800px){.stats .wrap{grid-template-columns:repeat(2,1fr);}}
-  .stat .n{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,38px);color:var(--lime);}
-  .stat .l{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:11.5px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-soft);margin-top:6px;}
+    :focus-visible {
+      outline: 3px solid var(--accent-green);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
 
-  /* ================= TESTIMONIALS ================= */
-  .testi{background:var(--bg);padding:100px 0;}
-  .testi-layout{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;margin-top:40px;align-items:start;}
-  @media (max-width:900px){.testi-layout{grid-template-columns:1fr;}}
-  .testi-intro h2{font-size:clamp(30px,4vw,44px);line-height:1.1;margin-bottom:24px;}
-  .testi-intro .dash{width:64px;height:2px;background:var(--lime);margin:22px 0;}
-  .testi-intro p{color:var(--text-soft);font-size:14.5px;max-width:340px;}
-  .testi-stack{display:flex;flex-direction:column;gap:16px;}
-  .testi-card{background:var(--ink-2);border:1px solid var(--line);padding:26px 28px;border-radius:var(--r-md);display:flex;justify-content:space-between;align-items:center;gap:20px;}
-  .testi-card .quote{font-size:14.5px;color:var(--text-soft);line-height:1.55;margin:0 0 12px;}
-  .testi-card .name{font-weight:600;font-size:14.5px;color:var(--text);}
-  .avatar{width:46px;height:46px;border-radius:50%;background:var(--lime);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-weight:700;font-size:14px;flex:none;}
-  @media (max-width:560px){.testi-card{flex-direction:column;align-items:flex-start;}}
-  .testi-note{margin-top:26px;font-size:12px;color:var(--text-soft);font-style:italic;}
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
 
-  /* ================= CTA BANNER ================= */
-  .cta-banner{position:relative;padding:110px 0 70px;overflow:hidden;background:var(--ink);border-radius:var(--r-md);margin:0 32px;}
-  @media (max-width:640px){.cta-banner{margin:0 20px;}}
-  .cta-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;filter:grayscale(60%);}
-  .cta-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,9,10,0.5) 0%, rgba(7,9,10,0.97) 85%);}
-  .cta-inner{position:relative;z-index:2;padding:0 48px;}
-  @media (max-width:640px){.cta-inner{padding:0 24px;}}
-  .cta-banner h2{color:var(--text);font-size:clamp(32px,5vw,52px);line-height:1.05;text-transform:uppercase;margin-bottom:0;}
-  .cta-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:36px;}
-  .cta-note{display:flex;align-items:center;gap:16px;max-width:340px;}
-  .cta-note p{margin:0;font-size:13.5px;color:var(--text-soft);}
-  .cta-actions{display:flex;gap:14px;flex-wrap:wrap;}
+    /* ---------- Top utility bar ---------- */
+    .topbar {
+      background: var(--brand-navy);
+      color: #fff;
+      font-size: .8rem;
+    }
 
-  /* ================= FOOTER ================= */
-  footer{background:var(--ink-2);padding:80px 0 0;margin-top:100px;border-top:1px solid var(--line);}
-  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line);}
-  @media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;row-gap:40px;}}
-  @media (max-width:520px){.foot-grid{grid-template-columns:1fr;}}
-  .foot-logo{display:flex;align-items:center;gap:10px;color:var(--text);font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-weight:700;font-size:20px;margin-bottom:16px;}
-  .foot-col h4{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--lime);margin-bottom:18px;font-weight:500;}
-  .foot-col p, .foot-col a{color:var(--text-soft);font-size:14.5px;}
-  .foot-col ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
-  .foot-col ul a:hover{color:var(--lime);}
-  .foot-contact-item{margin-bottom:14px;}
-  .foot-contact-item .k{font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:11px;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:4px;}
-  .foot-contact-item a{color:var(--text);font-size:15px;font-weight:500;}
-  .foot-contact-item a:hover{color:var(--lime);}
-  .foot-social{display:flex;gap:10px;margin-top:20px;}
-  .foot-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--text-soft);transition:all .2s ease;}
-  .foot-social a:hover{background:var(--lime);border-color:var(--lime);color:var(--ink);}
-  .foot-strip{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;padding:34px 0;opacity:0.5;}
-  .foot-strip span{display:flex;align-items:center;gap:8px;font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12px;color:var(--text-soft);}
-  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:22px 0;border-top:1px solid var(--line);font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12px;color:var(--text-soft);}
-</style>
+    html[data-theme="blue"] .topbar {
+      background: #071D38;
+    }
+
+    .topbar .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #DCEAFB;
+    }
+
+    .topbar-item strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .topbar a:hover {
+      color: var(--accent-green);
+    }
+
+    .topbar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(87, 219, 166, .15);
+      color: #7CE8BC;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-weight: 600;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #57DBA6;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .3;
+      }
+    }
+
+    /* ---------- Nav ---------- */
+    header.nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition-theme);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand svg {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      height: 40px;
+      width: auto;
+      flex-shrink: 0;
+      transition: filter .4s ease;
+    }
+
+    /* Logo automatically switches to white in the blue theme, regardless of the source image's own colours */
+    html[data-theme="blue"] .brand img {
+      filter: brightness(0) saturate(100%) invert(1);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-text .name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--brand-navy);
+    }
+
+    .brand-text .sub {
+      font-size: .66rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      font-weight: 600;
+    }
+
+    nav.links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav.links a {
+      font-size: .92rem;
+      font-weight: 500;
+      color: var(--text);
+      position: relative;
+      padding: 4px 0;
+    }
+
+    nav.links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0%;
+      background: var(--accent-green);
+      transition: width .25s ease;
+    }
+
+    nav.links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      padding: 5px;
+      border-radius: 100px;
+      cursor: pointer;
+    }
+
+    .theme-toggle button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .theme-toggle button.active {
+      background: var(--brand-blue);
+      color: #fff;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: .92rem;
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .25s ease, color .25s ease, border-color .25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--brand-blue);
+      color: #fff;
+      box-shadow: 0 10px 24px -10px rgba(11, 95, 165, .55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px -10px rgba(11, 95, 165, .6);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brand-blue);
+      color: var(--brand-blue);
+    }
+
+    .btn-sm {
+      padding: 9px 16px;
+      font-size: .82rem;
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      border-radius: 2px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: var(--hero-grad);
+      padding: 72px 0 40px;
+      overflow: hidden;
+      transition: var(--transition-theme);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-text-bg {
+      background: rgba(255, 255, 255, .88);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, .6);
+      border-radius: 24px;
+      padding: 32px 32px 28px;
+      box-shadow: 0 20px 45px -20px rgba(10, 42, 77, .35);
+    }
+
+    html[data-theme="blue"] .hero-text-bg {
+      background: rgba(10, 42, 77, .82);
+      border: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      background: var(--pill-bg);
+      padding: 7px 14px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-green);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--brand-navy);
+    }
+
+    .hero h1 span {
+      color: var(--brand-blue);
+    }
+
+    .hero p.lead {
+      margin-top: 22px;
+      font-size: 1.08rem;
+      max-width: 46ch;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      margin-top: 26px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+
+    .ecg-hero {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .ecg-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      background-image:
+        linear-gradient(var(--pill-bg) 1px, transparent 1px),
+        linear-gradient(90deg, var(--pill-bg) 1px, transparent 1px);
+      background-size: 24px 24px;
+      -webkit-mask-image: radial-gradient(ellipse 100% 90% at 50% 40%, #000 55%, transparent 100%);
+      mask-image: radial-gradient(ellipse 100% 90% at 50% 40%, #000 55%, transparent 100%);
+      opacity: .9;
+    }
+
+    .ecg-hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, var(--brand-blue) 0%, transparent 70%);
+      opacity: .14;
+      top: -90px;
+      right: -90px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .ecg-hero>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ecg-hero .cad {
+      position: absolute;
+      top: -18px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      background: var(--brand-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px -8px rgba(11, 95, 165, .6);
+    }
+
+    .ecg-hero .cad svg {
+      width: 64px;
+      height: 64px;
+    }
+
+    .ecg-hero svg.line {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .ecg-caption {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .7rem;
+      color: var(--text-muted);
+      letter-spacing: .05em;
+    }
+
+    .ecg-caption b {
+      color: var(--accent-green);
+    }
+
+    .ecg-path {
+      stroke: var(--brand-blue);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1000 1000;
+      stroke-dashoffset: 2000;
+      animation: draw-loop 3.2s linear infinite;
+    }
+
+    @keyframes draw-loop {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .ecg-path-glow {
+      stroke: var(--accent-green);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+      filter: drop-shadow(0 0 6px var(--accent-green));
+      stroke-dasharray: 70 930;
+      stroke-dashoffset: 1000;
+      animation: sweep 3.2s linear infinite;
+    }
+
+    @keyframes sweep {
+      0% {
+        stroke-dashoffset: 1000;
+        opacity: 0;
+      }
+
+      3% {
+        opacity: 1;
+      }
+
+      92% {
+        opacity: 1;
+      }
+
+      100% {
+        stroke-dashoffset: -930;
+        opacity: 0;
+      }
+    }
+
+    .ecg-dot {
+      fill: var(--accent-green);
+      filter: drop-shadow(0 0 5px var(--accent-green));
+      opacity: 0;
+      animation: sweep-dot 3.2s linear infinite;
+    }
+
+    @keyframes sweep-dot {
+      0% {
+        opacity: 0;
+      }
+
+      3% {
+        opacity: 1;
+      }
+
+      92% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .status-pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 0 0 rgba(87, 219, 166, .6);
+      animation: status-ping 1.8s ease-out infinite;
+    }
+
+    @keyframes status-ping {
+      0% {
+        box-shadow: 0 0 0 0 rgba(87, 219, 166, .55);
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(87, 219, 166, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(87, 219, 166, 0);
+      }
+    }
+
+    .status-text {
+      animation: status-fade 2.4s ease-in-out infinite;
+    }
+
+    @keyframes status-fade {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .55;
+      }
+    }
+
+    /* ---------- Stats strip ---------- */
+    .stats {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition-theme);
+    }
+
+    .stats .wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 34px 24px;
+      gap: 20px;
+    }
+
+    .stat {
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat .num {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--brand-blue);
+    }
+
+    .stat .label {
+      margin-top: 4px;
+      font-size: .78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ---------- Section headers ---------- */
+    .section-pad {
+      padding: 96px 0;
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin-bottom: 52px;
+    }
+
+    .section-head .eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .section-head p {
+      margin-top: 14px;
+      font-size: 1.02rem;
+    }
+
+    .section-alt {
+      background: var(--bg-alt);
+      transition: var(--transition-theme);
+    }
+
+    /* divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 0 0;
+    }
+
+    .divider svg {
+      width: 100%;
+      max-width: 1180px;
+      height: 34px;
+      opacity: .55;
+    }
+
+    .divider path {
+      stroke: var(--brand-blue);
+      stroke-width: 2;
+      fill: none;
+      opacity: .5;
+    }
+
+    /* ---------- Real-life photography: varied treatments ---------- */
+    .photo-caption {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .68rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    /* 1. Tilted framed card — used in the hero */
+    .photo-tilt-wrap {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-tilt {
+      position: relative;
+      max-width: 640px;
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 5px solid var(--surface);
+      box-shadow: var(--shadow);
+      transform: rotate(-1.4deg);
+      transition: transform .35s ease, var(--transition-theme);
+      aspect-ratio: 16/8;
+    }
+
+    .photo-tilt:hover {
+      transform: rotate(0deg);
+    }
+
+    .photo-tilt img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-tilt .photo-caption {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      margin-top: 0;
+      background: rgba(10, 37, 64, .78);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 100px;
+    }
+
+    /* 2. Offset collage pair — used in About */
+    .photo-collage {
+      position: relative;
+      margin-top: 44px;
+      padding-bottom: 60px;
+      padding-right: 40px;
+    }
+
+    .photo-collage .collage-main {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      aspect-ratio: 16/10;
+    }
+
+    .photo-collage .collage-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-collage .collage-accent {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 46%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 5px solid var(--bg);
+      box-shadow: var(--shadow);
+      aspect-ratio: 4/3;
+    }
+
+    .photo-collage .collage-accent img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 3. Circular badge photo — used in Services / Values */
+    .photo-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 4px solid var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section-head-photo {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* 4. Filmstrip row of unequal photos — used in Facilities */
+    .photo-filmstrip {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .photo-filmstrip figure {
+      margin: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      aspect-ratio: 3/4;
+      position: relative;
+    }
+
+    .photo-filmstrip figure:first-child {
+      aspect-ratio: 1/1;
+    }
+
+    .photo-filmstrip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-filmstrip figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(6, 20, 36, .82), transparent);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: 10px 12px;
+    }
+
+    @media (max-width:768px) {
+      .photo-filmstrip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .photo-filmstrip figure:first-child {
+        grid-column: 1/-1;
+        aspect-ratio: 16/9;
+      }
+    }
+
+    /* 5. Duotone editorial banner — used in Team */
+    .photo-duotone {
+      position: relative;
+      margin-top: 44px;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 16/6;
+      border: 1px solid var(--border);
+    }
+
+    .photo-duotone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(1) contrast(1.05);
+    }
+
+    .photo-duotone::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--brand-blue);
+      mix-blend-mode: multiply;
+      opacity: .72;
+    }
+
+    .photo-duotone .photo-caption {
+      position: absolute;
+      left: 24px;
+      bottom: 18px;
+      margin-top: 0;
+      color: #fff;
+      z-index: 1;
+      font-size: .74rem;
+    }
+
+    /* 6. Split pair — used in Contact */
+    .photo-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .photo-split figure {
+      margin: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      aspect-ratio: 4/3;
+    }
+
+    .photo-split img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width:560px) {
+      .photo-split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- About / history ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .about-card p {
+      font-size: .94rem;
+    }
+
+    .about-card+.about-card {
+      margin-top: 20px;
+    }
+
+    .founder-quote {
+      border-left: 3px solid var(--accent-green);
+      padding-left: 20px;
+      margin-top: 24px;
+      font-style: italic;
+      color: var(--text);
+      font-size: 1.02rem;
+    }
+
+    .timeline {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+    }
+
+    .timeline-year {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      color: var(--brand-blue);
+      min-width: 64px;
+      font-size: .85rem;
+      padding-top: 2px;
+    }
+
+    .timeline-copy p {
+      font-size: .92rem;
+    }
+
+    /* ---------- Services ---------- */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px 24px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--brand-blue);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--pill-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .service-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--brand-blue);
+    }
+
+    .service-card h4 {
+      font-size: 1.02rem;
+      margin-bottom: 6px;
+    }
+
+    .service-card p {
+      font-size: .86rem;
+    }
+
+    /* ---------- Facilities ---------- */
+    .facility-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .facility-cell {
+      padding: 26px 16px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .facility-cell svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--accent-green);
+      margin: 0 auto 10px;
+    }
+
+    .facility-cell .flabel {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ---------- Values (photo background section) ---------- */
+    .values-section {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .values-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    .values-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(1100px 480px at 12% -10%, rgba(27, 156, 110, .22), transparent 60%),
+        linear-gradient(120deg, rgba(6, 30, 56, .62) 0%, rgba(8, 50, 88, .50) 42%, rgba(11, 95, 165, .34) 100%);
+    }
+
+    .values-section .wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    .values-section .eyebrow {
+      background: rgba(255, 255, 255, .16);
+      color: #EAF4FF;
+      border: 1px solid rgba(255, 255, 255, .22);
+    }
+
+    .values-section .eyebrow::before {
+      background: var(--accent-green);
+    }
+
+    .values-section h2 {
+      color: #fff;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, .45);
+    }
+
+    .values-section .section-head p {
+      color: rgba(255, 255, 255, .85);
+      text-shadow: 0 1px 10px rgba(0, 0, 0, .35);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .value-card {
+      position: relative;
+      padding: 30px 24px 26px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(10, 30, 55, .38);
+      border: 1px solid rgba(255, 255, 255, .22);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 10px 30px -18px rgba(0, 0, 0, .5);
+      transition: transform .4s cubic-bezier(.2, .8, .2, 1), background .4s ease, border-color .4s ease, box-shadow .4s ease;
+    }
+
+    .value-card::before {
+      content: attr(data-num);
+      position: absolute;
+      right: 8px;
+      top: -6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 700;
+      font-size: 4.6rem;
+      line-height: 1;
+      color: rgba(255, 255, 255, .07);
+      pointer-events: none;
+      transition: color .4s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      background: rgba(10, 30, 55, .52);
+      border-color: rgba(87, 219, 166, .6);
+      box-shadow: 0 24px 44px -20px rgba(0, 0, 0, .6);
+    }
+
+    .value-card:hover::before {
+      color: rgba(87, 219, 166, .16);
+    }
+
+    .value-num {
+      font-family: 'IBM Plex Mono', monospace;
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, .14);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, .22);
+    }
+
+    .value-card h4 {
+      font-size: 1.02rem;
+      margin-bottom: 8px;
+      color: #fff;
+      position: relative;
+    }
+
+    .value-card p {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .68);
+      position: relative;
+    }
+
+    /* ---------- Payments ---------- */
+    .pay-band {
+      background: var(--brand-navy);
+      border-radius: 24px;
+      padding: 48px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 40px;
+      align-items: center;
+      color: #fff;
+    }
+
+    html[data-theme="blue"] .pay-band {
+      background: #071D38;
+    }
+
+    .pay-band h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .pay-band p {
+      color: #B9CEE6;
+    }
+
+    .pay-icons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .pay-chip {
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 14px;
+      padding: 18px 10px;
+      text-align: center;
+    }
+
+    .pay-chip svg {
+      width: 24px;
+      height: 24px;
+      stroke: #7CE8BC;
+      margin: 0 auto 8px;
+    }
+
+    .pay-chip span {
+      font-size: .74rem;
+      color: #DCEAFB;
+      font-weight: 600;
+    }
+
+    /* ---------- Team strip ---------- */
+    .team-band {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .team-copy p {
+      margin-top: 16px;
+      font-size: 1rem;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 14px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 16px;
+      background: var(--surface);
+    }
+
+    .badge svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--brand-blue);
+    }
+
+    .badge span {
+      font-size: .82rem;
+      font-weight: 600;
+    }
+
+    .avatar-cluster {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar-row {
+      display: flex;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 3px solid var(--bg);
+      margin-left: -14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: #fff;
+      font-size: .8rem;
+    }
+
+    .avatar:first-child {
+      margin-left: 0;
+    }
+
+    .avatar-row+p {
+      margin-top: 16px;
+      font-size: .85rem;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .contact-info {
+      background: var(--surface);
+      padding: 48px 44px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-row:first-of-type {
+      margin-top: 26px;
+    }
+
+    .contact-row svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--brand-blue);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-row .clabel {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .contact-row .cval {
+      font-size: .95rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .contact-row a:hover {
+      color: var(--brand-blue);
+    }
+
+    .map-embed {
+      min-height: 100%;
+      background: var(--bg-alt);
+    }
+
+    .map-embed iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      border: 0;
+      filter: grayscale(.15);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 64px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand .name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.05rem;
+    }
+
+    footer p {
+      color: var(--footer-text);
+      font-size: .88rem;
+      max-width: 34ch;
+    }
+
+    footer h5 {
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    footer ul a {
+      font-size: .88rem;
+      color: var(--footer-text);
+    }
+
+    footer ul a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: .78rem;
+      color: #8FA8C6;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:980px) {
+
+      nav.links,
+      .nav-actions .btn-ghost {
+        display: none;
+      }
+
+      .burger {
+        display: block;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid,
+      .team-band {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .facility-strip {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pay-band {
+        grid-template-columns: 1fr;
+      }
+
+      .pay-icons {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats .wrap {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 16px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width:560px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facility-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pay-icons {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-pad {
+        padding: 64px 0;
+      }
+
+      .topbar .wrap {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu .close-row {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .mobile-menu nav {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .mobile-menu nav a {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .mobile-menu .btn {
+      margin-top: 32px;
+      justify-content: center;
+    }
+
+    /* ---------- Galen Assistant chatbot ---------- */
+    .gh-chat-launcher {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 200;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 30px -10px rgba(11, 95, 165, .6);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .gh-chat-launcher:hover {
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    .gh-chat-launcher svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .gh-chat-launcher .gh-close-icon {
+      display: none;
+    }
+
+    .gh-chat-launcher.open .gh-chat-icon {
+      display: none;
+    }
+
+    .gh-chat-launcher.open .gh-close-icon {
+      display: block;
+    }
+
+    .gh-chat-window {
+      position: fixed;
+      right: 22px;
+      bottom: 96px;
+      z-index: 200;
+      width: 360px;
+      max-width: calc(100vw - 32px);
+      height: 520px;
+      max-height: calc(100vh - 140px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(16px) scale(.98);
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .gh-chat-window.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .gh-chat-header {
+      background: var(--brand-navy);
+      color: #fff;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .gh-chat-header .gh-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .gh-chat-header .gh-avatar svg {
+      width: 18px;
+      height: 18px;
+      stroke: #fff;
+    }
+
+    .gh-chat-header-text {
+      line-height: 1.25;
+    }
+
+    .gh-chat-header-text .gh-title {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    .gh-chat-header-text .gh-sub {
+      font-size: .7rem;
+      color: #B7CBE3;
+    }
+
+    .gh-chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: var(--bg-alt);
+    }
+
+    .gh-msg {
+      max-width: 85%;
+      font-size: .86rem;
+      line-height: 1.5;
+      padding: 10px 13px;
+      border-radius: 12px;
+      white-space: pre-wrap;
+    }
+
+    .gh-msg.bot {
+      align-self: flex-start;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 4px;
+    }
+
+    .gh-msg.user {
+      align-self: flex-end;
+      background: var(--brand-blue);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .gh-msg.bot a {
+      color: var(--brand-blue);
+      text-decoration: underline;
+    }
+
+    .gh-suggest-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0 16px 12px;
+      background: var(--bg-alt);
+      flex-shrink: 0;
+    }
+
+    .gh-suggest-chip {
+      font-size: .72rem;
+      padding: 6px 10px;
+      border-radius: 100px;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .gh-suggest-chip:hover {
+      background: var(--brand-blue);
+      color: #fff;
+      border-color: var(--brand-blue);
+    }
+
+    .gh-chat-input-row {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+
+    .gh-chat-input-row input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: .86rem;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .gh-chat-input-row input:focus-visible {
+      outline: 2px solid var(--brand-blue);
+    }
+
+    .gh-chat-input-row button {
+      background: var(--brand-blue);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      width: 40px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .gh-chat-input-row button svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .gh-chat-disclaimer {
+      font-size: .62rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 0 12px 10px;
+      flex-shrink: 0;
+      background: var(--surface);
+    }
+
+    @media (max-width:480px) {
+      .gh-chat-window {
+        right: 16px;
+        left: 16px;
+        width: auto;
+        bottom: 88px;
+      }
+
+      .gh-chat-launcher {
+        right: 16px;
+        bottom: 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="nav">
-  <div class="wrap">
-    <a class="logo" href="#top">
-      <svg class="mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 2L6 17H14L12 28L24 12H16L18.5 2H16.5Z" fill="#C6FF4A"/></svg>
-      ENSOL
-    </a>
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="nav-cta btn btn-outline" style="padding:10px 20px;font-size:13px;" href="tel:+263713743522">071 374 3522</a>
-    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-item">
+        <span class="topbar-badge"><span class="pulse-dot"></span>Open 24 hours, every day</span>
+      </div>
+      <div class="topbar-item"> 93 J. Tongogara St &amp; Cnr 9th Ave, Bulawayo</div>
+      <div class="topbar-item"><strong>Emergency line:</strong>&nbsp;<a href="tel:+263716544233">+263 716 544 233</a>
+      </div>
+    </div>
   </div>
-</header>
 
-<main id="top">
+  <header class="nav">
+    <div class="nav-inner wrap">
+      <a href="#top" class="brand">
+        <img src='g1.png' />
+      </a>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-copy">
-        <div class="hero-idx">
-          <span class="n mono">01</span>
-          <p class="eyebrow on-dark" style="margin-bottom:0;">Efficient Electrical Energy Solutions</p>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+
+        <a href="#values">Values</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="theme-toggle" role="group" aria-label="Theme switcher">
+          <button type="button" id="theme-white" class="active" onclick="setTheme('white')">White</button>
+          <button type="button" id="theme-blue" onclick="setTheme('blue')">Blue</button>
         </div>
-        <h1>Power that keeps<br>working when <em>ZESA</em><br>doesn't.</h1>
-        <p>Ensol designs, sizes and installs electrical and solar systems built for Zimbabwe's grid — from borehole pumps to full industrial wiring, tested on site before we leave.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Get a Free Quote</a>
-          <a class="btn-text" href="#services">
-            See Our Services
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div class="hero-trust">
-          <div class="avatar-stack">
-            <span class="av">RM</span><span class="av">TC</span><span class="av">SM</span>
-          </div>
-          <div class="trust-txt"><span class="num">50+</span> <span class="lbl">Happy Clients</span></div>
-          <div class="trust-divider"></div>
-          <div class="trust-note">
-            <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span>
-            <p>Every install tested on site before handover — no shortcuts.</p>
-          </div>
-        </div>
-      </div>
-      <div class="hero-media">
-        <div class="badge-chip"><span class="dot"></span> Licensed Electrical Technician</div>
-        <div class="frame">
-          <img src="https://images.pexels.com/photos/4254165/pexels-photo-4254165.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Solar technician installing a photovoltaic panel on a rooftop under a clear sky">
-        </div>
-        <div class="spec-card">
-          <div class="pct">0.5–100</div>
-          <div class="lbl">kVA systems sized &amp; installed</div>
-        </div>
+        <a href="tel:+2632928810514" class="btn btn-ghost btn-sm"> +263 292 881 051-4</a>
+
+        <button class="burger" onclick="toggleMobile(true)" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <div class="cut">
-    <div class="wrap">
-      <div class="coverage">
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><b>Coverage</b> — Harare &amp; surrounds</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><b>Response</b> — same-week site visits</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><b>Standard</b> — tested &amp; signed off</span>
-      </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-row">
+      <button class="burger" onclick="toggleMobile(false)" aria-label="Close menu">✕</button>
     </div>
+    <nav>
+      <a href="#about" onclick="toggleMobile(false)">About</a>
+      <a href="#services" onclick="toggleMobile(false)">Services</a>
 
-    <!-- ================= ABOUT ================= -->
-    <section class="about" id="about">
+      <a href="#values" onclick="toggleMobile(false)">Values</a>
+      <a href="#contact" onclick="toggleMobile(false)">Contact</a>
+    </nav>
+    <a href="tel:+263716544233" class="btn btn-primary">Call +263 716 544 233</a>
+  </div>
+
+  <main id="top">
+
+    <section class="hero" style="background: url(gh.jpeg); background-size:cover;">
+
+      <div class="wrap hero-inner">
+        <div class="hero-text-bg">
+         
+          <h1>Your health<br>is our <span>priority.</span></h1>
+          <p class="lead">Galen House Medical Centre is one of the oldest health facilities in Bulawayo, taking pride in
+            the best-quality service it offers the community. It offers doctor consultations and overnight care, and is
+            open round the clock.</p>
+          <div class="hero-ctas">
+            <a href="tel:+2632928810514" class="btn btn-primary">Call the Centre</a>
+            <a href="#services" class="btn btn-ghost">Explore Services</a>
+          </div>
+
+          <div class="hero-note">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+            Medical Aids · Cash · Ecocash · Direct Bank Transfer accepted
+          </div>
+
+        </div>
+
+        <div class="ecg-hero">
+          <div class="cad">
+            <img src="g22.png">
+          </div>
+          <img src="n.png">
+          <svg class="line" viewBox="0 0 460 140" xmlns="http://www.w3.org/2000/svg">
+            <path id="ecgTrack" d="M0 70 H90 L110 30 L130 110 L150 15 L170 120 L190 70 H460" fill="none" />
+            <path class="ecg-path" d="M0 70 H90 L110 30 L130 110 L150 15 L170 120 L190 70 H460" />
+            <path class="ecg-path-glow" d="M0 70 H90 L110 30 L130 110 L150 15 L170 120 L190 70 H460" />
+            <circle class="ecg-dot" r="4">
+              <animateMotion dur="3.2s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#ecgTrack" />
+              </animateMotion>
+            </circle>
+          </svg>
+          <div class="ecg-caption">
+            <span>PATIENT STATUS</span>
+            <span class="status-pulse"><span class="status-dot"></span><span class="status-text">STABLE &amp; CARED
+                FOR</span></span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="stats">
       <div class="wrap">
-        <div class="rail-section">
-          <div class="rail"></div><div class="node" style="top:6px;"></div>
-          <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;">
-            <div class="about-media">
-              <div class="frame"><img src="https://images.pexels.com/photos/4254164/pexels-photo-4254164.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Electrical technician in safety gear installing a solar panel"></div>
-              <div class="about-tag"><div class="name">Tafadzwa Musekiwa</div><div class="role">Lead Electrical Technician</div></div>
+        
+        <div class="stat">
+          <div class="num">24/7</div>
+          <div class="label">Open every hour, every day</div>
+        </div>
+        <div class="stat">
+          <div class="num">10+</div>
+          <div class="label">Services under one roof</div>
+        </div>
+        <div class="stat">
+          <div class="num">4</div>
+          <div class="label">Convenient ways to pay</div>
+        </div>
+      </div>
+    </section>
+
+   <!-- <section class="section-pad" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="section-head" style="margin-bottom:0;">
+            <div class="eyebrow">Our story</div>
+            <h2>Built on six decades of trust.</h2>
+          </div>
+          <div class="founder-quote">
+            "Galen House was set up for minor surgeries and ailments, to save people the stress of going all the way to
+            bigger institutions. Over the years it became a training ground for the doctors who shaped private practice
+            in Zimbabwe."
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">1957</div>
+              <div class="timeline-copy">
+                <p>Dr J G M Ferguson, a family physician originally from Scotland, opens his practice in Bulawayo, the
+                  beginning of Galen House.</p>
+              </div>
             </div>
-            <div class="about-copy">
-              <p class="eyebrow on-dark">About Ensol</p>
-              <h2>One technician.<br>Every system, signed off personally.</h2>
-              <div class="tag-pills"><span>Sizing</span><span>Install</span><span>Maintain</span></div>
-              <p>Ensol is built around a simple standard: the person who sizes your system is the same person who installs it, tests it, and stands behind it — from a single household rewire to a full industrial installation.</p>
-              <p>No subcontracted crews, no guesswork sizing. Just electrical and solar work done to spec, for homes, farms and businesses across Zimbabwe.</p>
-              <div class="about-actions">
-                <a class="btn btn-primary" href="#contact">Get a Free Quote</a>
-                <a class="btn-text" href="#process">
-                  <span class="play-btn" style="width:36px;height:36px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-                  How We Work
-                </a>
+            <div class="timeline-item">
+              <div class="timeline-year">1980s</div>
+              <div class="timeline-copy">
+                <p>Dr Ferguson helps form a united Zimbabwe Medical Association and co-establishes examinations for
+                  doctors entering private practice.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">Today</div>
+              <div class="timeline-copy">
+                <p>Galen House is housed with facilities that offer imaging, laboratory, different specialist
+                  disciplines, physiotherapy, and ambulance services.
+                  The practice is still guided by the same founding purpose to provide easy access to health services to
+                  the Bulawayo community round the clock.
+                </p>
               </div>
             </div>
           </div>
         </div>
+-->
+        <div>
+          <div class="about-card">
+            <h3>Our Vision</h3>
+            <p>A healthy Zimbabwe.</p>
+          </div>
+          <div class="about-card">
+            <h3>Our Mission</h3>
+            <p>To provide quality health services.</p>
+          </div>
+          <div class="about-card">
+            <h3>Corporate Governance</h3>
+            <p>We abide by the rules and regulations set by the Health Board, our governing bodies, and general societal
+              ethics. </p>
+          </div>
+        </div>
       </div>
+      <img src="nurse.png">
     </section>
 
-    <!-- ================= SERVICES ================= -->
-    <section class="services" id="services">
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 1180 34">
+        <path d="M0 17 H480 L500 4 L520 30 L540 4 L560 30 L580 17 H1180" />
+      </svg>
+    </div>
+
+    <section class="section-pad section-alt" id="services">
       <div class="wrap">
-        <div class="rail-section">
-          <div class="rail"></div><div class="node" style="top:6px;"></div>
-          <div class="section-head">
-            <div>
-              <p class="eyebrow on-dark">What We Do</p>
-              <h2>Our Services</h2>
-            </div>
-            <div class="arrow-nav">
-              <button class="arrow-btn" id="svcPrev" aria-label="Previous services"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-              <button class="arrow-btn" id="svcNext" aria-label="Next services"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-            </div>
+
+
+        <div class="service-grid">
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path d="M12 2a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4Z" />
+                <path d="M6 10v1a6 6 0 0 0 12 0v-1M12 17v5M8 22h8" />
+              </svg></div>
+            <h4>GP Consultations</h4>
+            <p>General practitioner consultations and full medical examinations.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path d="m3 11 9-8 9 8M5 10v10h14V10" />
+              </svg></div>
+            <h4>Home Visits</h4>
+            <p>Care that comes to you when travelling to the centre isn't possible.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <circle cx="12" cy="12" r="8" />
+                <path d="M12 8v4l3 2" />
+              </svg></div>
+            <h4>Endoscopy &amp; Colonoscopy</h4>
+            <p>State of the art equipment to do general surgical scopes performed by experienced specialists.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path d="M3 12h4l2-6 4 12 2-6h6" />
+              </svg></div>
+            <h4>ECG</h4>
+            <p>Heart monitoring and diagnostics performed on-site.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path d="M8 10h8M8 14h5" />
+                <rect x="3" y="4" width="18" height="16" rx="2" />
+              </svg></div>
+            <h4>Counselling</h4>
+            <p>Confidential, one-on-one psychosocial support.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c0-4 4-6 8-6s8 2 8 6" />
+              </svg></div>
+            <h4>Baby Clinic</h4>
+            <p>Vaccinations and weighing for babies and children under 10.</p>
+            <p style="margin-top:4px;font-size:.78rem;font-weight:600;color:var(--brand-blue);">Mon–Fri, 8am–5pm</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path
+                  d="M12 21s-7-4.35-9.5-8.5C.7 8.9 2.7 5 6.5 5c2 0 3.4 1.1 4 2.2C11.1 6.1 12.5 5 14.5 5c3.8 0 5.8 3.9 4 7.5C19 16.65 12 21 12 21Z" />
+              </svg></div>
+            <h4>Women's Clinic</h4>
+            <p>Pap smears and VIAC screening, plus antenatal check-ups.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a6 6 0 0 1 12 0v2" />
+              </svg></div>
+            <h4>Men's Clinic</h4>
+            <p>Dedicated screening and consultations for men's health.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path d="M6 4v16M18 4v16M6 8h4M6 16h4M14 8h4M14 16h4" />
+              </svg></div>
+            <h4>Physiotherapy</h4>
+            <p>Rehabilitation for back pain, joint injuries and mobility.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path d="M4 21V9l8-6 8 6v12" />
+                <path d="M9 21v-6h6v6" />
+              </svg></div>
+            <h4>Overnight Admissions</h4>
+            <p>Comfortable in-patient beds for observation and recovery.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 9h.01M15 9h.01M8 14s1.5 2 4 2 4-2 4-2" />
+              </svg></div>
+            <h4>Dermatology Clinic</h4>
+            <p>Quarterly specialist skin clinic, by appointment.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 1180 34">
+        <path d="M0 17 H480 L500 4 L520 30 L540 4 L560 30 L580 17 H1180" />
+      </svg>
+    </div>
+
+    <section class="section-pad values-section" id="values">
+      <img class="values-bg-img" src="n2.png" alt="">
+      <div class="values-overlay" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head section-head-photo">
+
+          <div>
+            <div class="eyebrow">Our values</div>
+            <h2>The principles behind every consultation.</h2>
           </div>
         </div>
 
-        <div class="svc-track" id="svcTrack">
-          <div class="svc-card">
-            <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 3h-6v6"/></svg></div>
-            <span class="svc-code">SZ / 01</span>
-            <h3>System Sizing</h3>
-            <p>A proper load audit before anything is quoted — matched to what you actually use.</p>
-            <span class="lnk">Learn More →</span>
+        <div class="values-grid">
+          <div class="value-card" data-num="01">
+            <div class="value-num">01</div>
+            <h4>Confidentiality</h4>
+            <p>We adhere to the utmost patient confidentiality, always.</p>
           </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg></div>
-            <span class="svc-code">SL / 02</span>
-            <h3>Solar Installations</h3>
-            <p>Panel, inverter and battery installs — mounted, wired and commissioned to standard.</p>
-            <span class="lnk">Learn More →</span>
+          <div class="value-card" data-num="02">
+            <div class="value-num">02</div>
+            <h4>Respect</h4>
+            <p>Every patient is treated with dignity, regardless of circumstance.</p>
           </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 0 0-1.4l-1.6-1.6a1 1 0 0 0-1.4 0L13.1 3.3a1 1 0 0 0 0 1.4z"/><path d="M9.6 12.6l-6.4 6.4a2 2 0 1 0 2.8 2.8l6.4-6.4M11 8L3.5 15.5"/></svg></div>
-            <span class="svc-code">MT / 03</span>
-            <h3>Maintenance &amp; Repairs</h3>
-            <p>Fault-finding, panel servicing and breakdown callouts to keep systems running.</p>
-            <span class="lnk">Learn More →</span>
+          <div class="value-card" data-num="03">
+            <div class="value-num">03</div>
+            <h4>Professionalism</h4>
+            <p>Clinical decisions are made by trained, capable health personnel.</p>
           </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg></div>
-            <span class="svc-code">WR / 04</span>
-            <h3>House &amp; Industrial Wiring</h3>
-            <p>New wiring, rewires and upgrades for homes, factory floors, and everything between.</p>
-            <span class="lnk">Learn More →</span>
+          <div class="value-card" data-num="04">
+            <div class="value-num">04</div>
+            <h4>Teamwork</h4>
+            <p>We work with other medical personnel and departments our patients are referred to.</p>
           </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v14M12 16l-4-4M12 16l4-4"/><path d="M4 20h16"/></svg></div>
-            <span class="svc-code">BH / 05</span>
-            <h3>Borehole Installations</h3>
-            <p>Submersible pump wiring and solar-powered borehole systems for reliable water.</p>
-            <span class="lnk">Learn More →</span>
+          <div class="value-card" data-num="05">
+            <div class="value-num">05</div>
+            <h4>Accountability</h4>
+            <p>We have confidence in our health personnel's decisions on patient care and management.</p>
+          </div>
+          <div class="value-card" data-num="06">
+            <div class="value-num">06</div>
+            <h4>Transparency</h4>
+            <p>Committed to satisfactory care for patients, and moral support for their relatives.</p>
           </div>
         </div>
       </div>
     </section>
-  </div><!-- /.cut -->
 
-  <!-- ================= FEATURE (editorial) ================= -->
-  <section class="feature">
-    <div class="wrap">
-      <p class="eyebrow on-dark">Built For Zimbabwe's Grid</p>
-      <h2>Systems designed to outlast<br>the outages, not just survive them.</h2>
-      <div class="feature-grid">
-        <div class="feature-labels">
-          <span>Sizing</span><span>Wiring</span><span>Solar</span>
-        </div>
-        <div class="feature-img">
-          <img src="https://images.pexels.com/photos/17842832/pexels-photo-17842832.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Electrical technician working on a distribution board">
-        </div>
-        <div class="feature-copy">
-          <h3>Why sizing comes before anything else</h3>
-          <p>Most system failures trace back to one thing — a system that was never sized for the load it needed to carry. Every Ensol job starts with a walk-through and a proper audit, not a price list.</p>
-          <a class="btn-text" href="#contact">Get a Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-          <div class="feature-meta">
-            <span>Est. <b>2019</b></span>
-            <span>By <b>Tafadzwa Musekiwa</b></span>
+    <section class="section-pad">
+      <div class="wrap">
+        <div class="pay-band">
+          <div>
+            <h3>Modes of Payment</h3>
+            <p>We keep payment simple. You supporting your care either locally or from abroad.</p>
+          </div>
+          <div class="pay-icons">
+            <div class="pay-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                <path d="M20 8H4M20 8v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8M20 8l-8-5-8 5" />
+              </svg>
+              <span>Medical Aid</span>
+            </div>
+            <div class="pay-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+              <span>Cash</span>
+            </div>
+            <div class="pay-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <path d="M2 10h20" />
+              </svg>
+              <span>Ecocash</span>
+            </div>
+            <div class="pay-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6" />
+              </svg>
+              <span>Direct Bank Transfer</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= PROCESS ================= -->
-  <section class="process" id="process">
-    <div class="wrap">
-      <p class="eyebrow on-dark">How We Work</p>
-      <h2 style="font-size:clamp(28px,3.6vw,40px);max-width:600px;">A fixed sequence, because guesswork is how systems fail.</h2>
-      <div class="proc-grid">
-        <div class="proc-step"><span class="idx mono">01 — Assess</span><h3>Site visit &amp; load audit</h3><p>We walk the property, check your current wiring or system, and measure what you actually draw — day and night.</p></div>
-        <div class="proc-step"><span class="idx mono">02 — Size &amp; Quote</span><h3>Right-sized system</h3><p>A written quote matched to your load and budget, with no components added just to inflate the price.</p></div>
-        <div class="proc-step"><span class="idx mono">03 — Install &amp; Commission</span><h3>Tested before we leave</h3><p>Installation, wiring and commissioning on an agreed date — checked and tested on site before handover.</p></div>
-      </div>
-    </div>
-  </section>
+    <section class="section-pad" id="team">
+      <div class="wrap team-band">
+        <div class="team-copy">
+          <div class="eyebrow">Our people</div>
+          <h2>A team built on decades of mentorship.</h2>
+          <p>That same spirit of mentorship and hands-on care carries through today's team of physicians, nurses,
+            physiotherapists and support staff.</p>
+          <p style="margin-top:16px;"><strong style="color:var(--text);">Practitioner in Charge:</strong> Dr Munekayi
+            Padingani, MD (UNIKIN), MPH (UZ)<br><strong style="color:var(--text);">In partnership with:</strong> Dr D.
+            C. Sithole, Dr Mulapi, Dr K. Saunyama and Dr Mutenhaunga.</p>
 
-  <!-- ================= STATS ================= -->
-  <section class="stats">
-    <div class="wrap">
-      <div class="stat"><div class="n">5+</div><div class="l">Years in the Field</div></div>
-      <div class="stat"><div class="n">50+</div><div class="l">Installations Completed</div></div>
-      <div class="stat"><div class="n">24/7</div><div class="l">Emergency Callouts</div></div>
-      <div class="stat"><div class="n">100%</div><div class="l">Tested Before Handover</div></div>
-    </div>
-  </section>
-
-  <!-- ================= TESTIMONIALS ================= -->
-  <section class="testi">
-    <div class="wrap">
-      <p class="eyebrow on-dark">Client Feedback</p>
-      <div class="testi-layout">
-        <div class="testi-intro">
-          <h2>Voices from<br>the field</h2>
-          <div class="dash"></div>
-          <p>Here's what clients say after the power stays on — from homeowners to farm and factory operators across Zimbabwe.</p>
         </div>
-        <div class="testi-stack">
-          <div class="testi-card">
-            <div><p class="quote">"Tafadzwa sized our solar system properly the first time — no guessing, no callbacks. It's been running since installation without issue."</p><div class="name">Rutendo M. — Homeowner, Harare</div></div>
-            <div class="avatar">RM</div>
+
+        <div class="avatar-cluster">
+          <div class="avatar-row">
+            <div class="avatar" style="background:#0B5FA5;">GF</div>
+            <div class="avatar" style="background:#1B9C6E;">RN</div>
+            <div class="avatar" style="background:#E0473E;">PT</div>
+            <div class="avatar" style="background:#08406F;">GP</div>
+            <div class="avatar" style="background:#63B0EE;">+</div>
           </div>
-          <div class="testi-card">
-            <div><p class="quote">"Our borehole pump wiring needed redoing after a storm. Ensol had it assessed and fixed within the week."</p><div class="name">Tendai C. — Farm Owner, Mashonaland</div></div>
-            <div class="avatar">TC</div>
+          <p>Doctors, nurses, physiotherapists and administrative staff working across our clinics are pictured on our
+            clinic signage, badges of years of combined community service.</p>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="photo-duotone">
+          <img src="2.jpeg" alt="Physiotherapist assisting a patient with walking exercises" loading="lazy">
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 1180 34">
+        <path d="M0 17 H480 L500 4 L520 30 L540 4 L560 30 L580 17 H1180" />
+      </svg>
+    </div>
+
+    <section class="section-pad section-alt" id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Get in touch</div>
+          <h2>We're open 24 hours — reach us any time.</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Galen House Medical Centre</h3>
+            <p>93 J. Tongogara Street &amp; Cnr 9th Avenue, Bulawayo, Zimbabwe.</p>
+
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z" />
+              </svg>
+              <div>
+                <div class="clabel">Landlines</div>
+                <div class="cval"><a href="tel:+2632928810514">+263 292 881 051-4</a></div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <rect x="5" y="2" width="14" height="20" rx="2" />
+                <path d="M12 18h.01" />
+              </svg>
+              <div>
+                <div class="clabel">Mobile</div>
+                <a href="tel:+263716544233">+263 716 544 233</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path d="M4 4h16v16H4z" />
+                <path d="m4 6 8 7 8-7" />
+              </svg>
+              <div>
+                <div class="clabel">Email</div>
+                <div class="cval"><a href="mailto:galenaccounts@gatorzw.co.uk">galenaccounts@gatorzw.co.uk</a><br><a
+                    href="mailto:allegramed@allegra.co.zw">allegramed@allegra.co.zw</a></div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+              <div>
+                <div class="clabel">Hours</div>
+                <div class="cval">Open 24 hours, every day of the week</div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z" />
+              </svg>
+              <div>
+                <div class="clabel">WhatsApp</div>
+                <div class="cval"><a href="https://wa.me/263716544233" target="_blank" rel="noopener">Chat with us on
+                    WhatsApp</a></div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z" />
+              </svg>
+              <div>
+                <div class="clabel">Bookings</div>
+                <div class="cval"><a href="tel:+263772388941">0772 388 941</a></div>
+              </div>
+            </div>
           </div>
-          <div class="testi-card">
-            <div><p class="quote">"We needed industrial wiring done to spec, on schedule. Ensol was direct about timelines and delivered exactly that."</p><div class="name">S. Moyo — Operations Manager</div></div>
-            <div class="avatar">SM</div>
+
+ <div class="map-embed">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=93+Josiah+Tongogara+Street+Bulawayo+Zimbabwe&output=embed"
+            title="Map to Galen House Medical Centre, Bulawayo">
+          </iframe>
+        </div>
+        </div>
+
+       
+      </div>
+
+
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="g2.png">
+
           </div>
+          <p>A one-stop private medical facility in Bulawayo, serving the community since 1957. Your health is our
+            priority.</p>
+        </div>
+        <div>
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#values">Our Values</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Clinics</h5>
+          <ul>
+            <li><a href="#services">Baby Clinic</a></li>
+            <li><a href="#services">Women's Clinic</a></li>
+            <li><a href="#services">Men's Clinic</a></li>
+            <li><a href="#services">Physiotherapy Unit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:+2632928810514">+263 292 881 051-4</a></li>
+            <li><a href="tel:+263716544233">+263 716 544 233</a></li>
+            <li><a href="https://wa.me/263716544233" target="_blank" rel="noopener">Whatsapp</a></li>
+            <li><a href="mailto:galenaccounts@gatorzw.co.uk">galenaccounts@gatorzw.co.uk</a></li>
+            <li>93 J. Tongogara St &amp; Cnr 9th Ave, Bulawayo</li>
+          </ul>
         </div>
       </div>
-      <p class="testi-note">Sample testimonials shown for layout — replace with real client feedback before publishing.</p>
-    </div>
-  </section>
-
-  <!-- ================= CTA BANNER ================= -->
-  <section class="cta-banner" id="quote">
-    <img src="https://images.pexels.com/photos/6040783/pexels-photo-6040783.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Technician installing solar panels on a rooftop in daylight">
-    <div class="cta-inner">
-      <p class="eyebrow on-dark">Ready When You Are</p>
-      <h2>Stop losing power<br>to load-shedding.</h2>
-      <div class="cta-bottom">
-        <div class="cta-note">
-          <span class="play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-          <p>Get a proper load audit and a straight quote — no oversized systems, no pressure.</p>
-        </div>
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="mailto:tafmsekiwa7@gmail.com">Email for a Quote</a>
-          <a class="btn btn-outline" href="tel:+263713743522">Call 071 374 3522</a>
-        </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Galen House Medical Centre. All rights reserved.</span>
+        <span>Founded 1957 by Dr Garry Ferguson · Bulawayo, Zimbabwe</span>
       </div>
     </div>
-  </section>
+  </footer>
 
-</main>
-
-<!-- ================= FOOTER ================= -->
-<footer id="contact">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-col">
-        <div class="foot-logo"><svg width="26" height="26" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 2L6 17H14L12 28L24 12H16L18.5 2H16.5Z" fill="#C6FF4A"/></svg>ENSOL</div>
-        <p style="max-width:260px;">Efficient electrical and solar energy solutions — sized, installed and tested by Tafadzwa Musekiwa, Electrical Technician.</p>
-        <div class="foot-social">
-          <a href="mailto:tafmsekiwa7@gmail.com" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></a>
-          <a href="tel:+263713743522" aria-label="Call"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-        </div>
+  <!-- ---------- Galen Assistant chatbot ---------- -->
+  <div class="gh-chat-window" id="ghChatWindow" role="dialog" aria-label="Galen House Medical Centre assistant"
+    aria-hidden="true">
+    <div class="gh-chat-header">
+      <div class="gh-avatar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 2a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4Z" />
+          <path d="M6 10v1a6 6 0 0 0 12 0v-1M12 17v5M8 22h8" />
+        </svg>
       </div>
-      <div class="foot-col">
-        <h4>Contact</h4>
-        <div class="foot-contact-item"><span class="k">Email</span><a href="mailto:tafmsekiwa7@gmail.com">tafmsekiwa7@gmail.com</a></div>
-        <div class="foot-contact-item"><span class="k">Phone</span><a href="tel:+263713743522">+263 71 374 3522</a></div>
-        <div class="foot-contact-item"><span class="k">Phone</span><a href="tel:+263772659009">+263 77 265 9009</a></div>
-      </div>
-      <div class="foot-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">System Sizing</a></li>
-          <li><a href="#services">Solar Installations</a></li>
-          <li><a href="#services">Maintenance &amp; Repairs</a></li>
-          <li><a href="#services">House &amp; Industrial Wiring</a></li>
-          <li><a href="#services">Borehole Installations</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Ensol</h4>
-        <ul>
-          <li><a href="#about">About Tafadzwa</a></li>
-          <li><a href="#process">How We Work</a></li>
-          <li><a href="#quote">Request a Quote</a></li>
-        </ul>
+      <div class="gh-chat-header-text">
+        <div class="gh-title">Galen Assistant</div>
+        <div class="gh-sub">Ask about Galen House Medical Centre</div>
       </div>
     </div>
-
-    <div class="foot-strip">
-      <span><svg width="14" height="14" viewBox="0 0 30 30" fill="none"><path d="M16.5 2L6 17H14L12 28L24 12H16L18.5 2H16.5Z" fill="currentColor"/></svg> Ensol</span>
-      <span><svg width="14" height="14" viewBox="0 0 30 30" fill="none"><path d="M16.5 2L6 17H14L12 28L24 12H16L18.5 2H16.5Z" fill="currentColor"/></svg> Ensol</span>
-      <span><svg width="14" height="14" viewBox="0 0 30 30" fill="none"><path d="M16.5 2L6 17H14L12 28L24 12H16L18.5 2H16.5Z" fill="currentColor"/></svg> Ensol</span>
-      <span><svg width="14" height="14" viewBox="0 0 30 30" fill="none"><path d="M16.5 2L6 17H14L12 28L24 12H16L18.5 2H16.5Z" fill="currentColor"/></svg> Ensol</span>
-      <span><svg width="14" height="14" viewBox="0 0 30 30" fill="none"><path d="M16.5 2L6 17H14L12 28L24 12H16L18.5 2H16.5Z" fill="currentColor"/></svg> Ensol</span>
-    </div>
-
-    <div class="foot-bottom">
-      <span>© 2026 Ensol Electrical &amp; Solar Systems. All rights reserved.</span>
-      <span>SZ-01 · SL-02 · MT-03 · WR-04 · BH-05</span>
-    </div>
+    <div class="gh-chat-body" id="ghChatBody"></div>
+    <div class="gh-suggest-row" id="ghSuggestRow"></div>
+    <form class="gh-chat-input-row" id="ghChatForm">
+      <input type="text" id="ghChatInput" placeholder="Ask a question…" autocomplete="off"
+        aria-label="Type your question">
+      <button type="submit" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2 11 13" />
+          <path d="M22 2 15 22l-4-9-9-4 20-7Z" />
+        </svg>
+      </button>
+    </form>
+    <div class="gh-chat-disclaimer">Answers are based on Galen House website info only. For emergencies, call +263 716
+      544 233.</div>
   </div>
-</footer>
 
-<script>
-  const toggle = document.querySelector('.nav-toggle');
-  const links = document.querySelector('.nav-links');
-  if (toggle) {
-    toggle.addEventListener('click', () => {
-      const open = links.style.display === 'flex';
-      links.style.display = open ? 'none' : 'flex';
-      links.style.cssText += open ? '' : 'position:absolute;top:80px;left:0;right:0;background:var(--ink);flex-direction:column;padding:20px 32px;gap:18px;border-bottom:1px solid var(--line);';
-    });
-  }
-  const track = document.getElementById('svcTrack');
-  const prev = document.getElementById('svcPrev');
-  const next = document.getElementById('svcNext');
-  if (track && prev && next) {
-    const scrollAmt = () => track.querySelector('.svc-card').offsetWidth + 20;
-    prev.addEventListener('click', () => track.scrollBy({left: -scrollAmt(), behavior:'smooth'}));
-    next.addEventListener('click', () => track.scrollBy({left: scrollAmt(), behavior:'smooth'}));
-  }
-</script>
+  <button class="gh-chat-launcher" id="ghChatLauncher" aria-label="Open Galen House assistant chat"
+    aria-expanded="false">
+    <svg class="gh-chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path
+        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z" />
+    </svg>
+    <svg class="gh-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 6 6 18M6 6l12 12" />
+    </svg>
+  </button>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      document.getElementById('theme-white').classList.toggle('active', theme === 'white');
+      document.getElementById('theme-blue').classList.toggle('active', theme === 'blue');
+    }
+
+    function toggleMobile(open) {
+      document.getElementById('mobileMenu').classList.toggle('open', open);
+    }
+
+    /* =========================================================
+       GALEN ASSISTANT — a small, self-contained Q&A chatbot
+       built entirely from the content on this page. It works
+       fully offline (no external API calls) by matching the
+       visitor's question against a knowledge base of topics
+       and returning the best-matching answer.
+       ========================================================= */
+    (function () {
+      const KB = [
+        {
+          id: 'hours',
+          keywords: ['hour', 'hours', 'open', 'close', 'closing', 'time', '24', '247', '24/7', '24hr', '24hrs', 'when'],
+          answer: "Galen House Medical Centre is open 24 hours a day, every day of the week — including weekends and public holidays."
+        },
+        {
+          id: 'location',
+          keywords: ['where', 'address', 'location', 'located', 'directions', 'map', 'find you', 'street'],
+          answer: "We're located at 93 J. Tongogara Street & Cnr 9th Avenue, Bulawayo, Zimbabwe."
+        },
+        {
+          id: 'phone',
+          keywords: ['phone', 'call', 'number', 'contact', 'telephone', 'landline', 'mobile', 'reach you', 'get in touch'],
+          answer: "You can reach us by phone:\n• Landlines: +263 292 881 051-4\n• Mobile: +263 786 953 896 · +263 716 544 233\n• Bookings: 0772 388 941\n• Emergency line: +263 716 544 233\n• Or message us on WhatsApp: +263 716 544 233"
+        },
+        {
+          id: 'whatsapp',
+          keywords: ['whatsapp', 'wa.me', 'chat online', 'message you', 'text you'],
+          answer: "Yes — you can message us directly on WhatsApp at +263 716 544 233, or use the WhatsApp link in the Contact section of this site."
+        },
+        {
+          id: 'email',
+          keywords: ['email', 'e-mail', 'mail'],
+          answer: "You can email us at galenaccounts@gatorzw.co.uk or allegramed@allegra.co.zw."
+        },
+        {
+          id: 'history',
+          keywords: ['history', 'founded', 'founder', 'start', 'began', 'old', 'ferguson', 'since when', 'year', 'scotland', '1957'],
+          answer: "Galen House Medical Centre was founded in 1957 by Dr Garry Ferguson, a family physician from Scotland, who practised there for 61 years. It began as a practice for minor surgeries and ailments and grew into today's full medical centre, becoming a training ground for many of Zimbabwe's private-practice doctors."
+        },
+        {
+          id: 'mission_vision',
+          keywords: ['mission', 'vision', 'purpose', 'goal', 'governance'],
+          answer: "Our vision is 'A healthy Zimbabwe' and our mission is to provide quality health services. We're also guided by corporate governance rules from the Health Board, our governing bodies, and general societal ethics."
+        },
+        {
+          id: 'values',
+          keywords: ['values', 'principles', 'confidentiality', 'respect', 'professionalism', 'teamwork', 'accountability', 'transparency', 'ethic'],
+          answer: "Our core values are: Confidentiality, Respect, Professionalism, Teamwork, Accountability, and Transparency — the principles behind every consultation."
+        },
+        {
+          id: 'services',
+          keywords: ['service', 'services', 'consultation', 'offer', 'what do you do', 'treat', 'treatment'],
+          answer: "Our services include: GP Consultations, Home Visits, Endoscopy & Colonoscopy, ECG, Counselling, Baby Clinic, Women's Clinic, Men's Clinic, Physiotherapy, Overnight Admissions, and Dermatology Clinic (quarterly, by appointment)."
+        },
+        {
+          id: 'baby_clinic',
+          keywords: ['baby', 'babies', 'child', 'children', 'vaccination', 'vaccine', 'immunisation', 'immunization', 'weighing'],
+          answer: "Our Baby Clinic offers vaccinations and weighing for babies and children under 10. It runs Monday to Friday, 8am to 5pm. To book, call 0772 388 941."
+        },
+        {
+          id: 'womens_clinic',
+          keywords: ['women', 'woman', 'pap smear', 'viac', 'antenatal', 'anc', 'pregnan', 'maternal'],
+          answer: "Our Women's Clinic offers Pap smears and VIAC screening, plus antenatal (ANC) check-ups through every stage of pregnancy."
+        },
+        {
+          id: 'mens_clinic',
+          keywords: ["men's", 'men', 'male', 'man'],
+          answer: "Our Men's Clinic provides dedicated screening and consultations for men's health."
+        },
+        {
+          id: 'physio',
+          keywords: ['physio', 'physiotherapy', 'rehab', 'rehabilitation', 'back pain', 'joint', 'mobility'],
+          answer: "Our Physiotherapy service covers rehabilitation for back pain, joint injuries, and mobility issues."
+        },
+        {
+          id: 'dermatology',
+          keywords: ['skin', 'derma', 'dermatology', 'rash'],
+          answer: "We run a quarterly Dermatology Clinic with a specialist, available by appointment."
+        },
+        {
+          id: 'home_visit',
+          keywords: ['home visit', 'house call', 'come to my home', 'travel to me'],
+          answer: "We offer Home Visits for patients who are unable to travel to the centre."
+        },
+        {
+          id: 'admissions',
+          keywords: ['admission', 'admit', 'overnight', 'stay', 'in-patient', 'inpatient', 'bed', 'ward'],
+          answer: "We have Overnight Admissions with comfortable in-patient beds for observation and recovery."
+        },
+        {
+          id: 'counseling',
+          keywords: ['counsel', 'counselling', 'counseling', 'therapy', 'mental health', 'psychosocial'],
+          answer: "We offer confidential, one-on-one psychosocial Counseling."
+        },
+        {
+          id: 'endoscopy',
+          keywords: ['endoscopy', 'colonoscopy', 'scope'],
+          answer: "We provide Endoscopy & Colonoscopy — general surgical scopes performed by experienced specialists."
+        },
+        {
+          id: 'ecg',
+          keywords: ['ecg', 'heart', 'cardiac', 'ekg'],
+          answer: "We perform ECG (heart monitoring and diagnostics) on-site."
+        },
+        {
+          id: 'facilities',
+          keywords: ['facilit', 'xray', 'x-ray', 'ct scan', 'mri', 'laborator', 'lab', 'ultrasound', 'scan', 'imaging', 'ambulance'],
+          answer: "Our in-house facilities include General X-ray, CT Scan, MRI, Laboratory, Ultrasound Scan, and Ambulance Services — so imaging, lab work and specialist opinions can often stay within one visit."
+        },
+        {
+          id: 'payment',
+          keywords: ['pay', 'payment', 'cost', 'price', 'fee', 'medical aid', 'insurance', 'cash', 'ecocash', 'bank transfer', 'how much'],
+          answer: "We accept several ways to pay: Medical Aid, Cash, Ecocash, and Direct Bank Transfer."
+        },
+        {
+          id: 'team',
+          keywords: ['staff', 'team', 'doctor', 'doctors', 'nurse', 'nurses', 'who works', 'personnel'],
+          answer: "Our practitioner in charge is Dr Munekayi Padingani, MD (UNIKIN), MPH (UZ), in partnership with Dr D. C. Sithole, Dr Mulapi, Dr K. Saunyama and Dr Mutenhaunga — a young and enthusiastic, highly qualified crop of doctors, backed by experienced administrative staff, registered general nurses and ancillary staff. They carry on the mentorship tradition started by founder Dr Garry Ferguson, who practised at Galen House for 61 years and trained generations of Zimbabwean doctors."
+        },
+        {
+          id: 'emergency',
+          keywords: ['emergency', 'urgent', 'ambulance number', '911', '999'],
+          answer: "For emergencies, call our emergency line: +263 716 544 233. We're open 24 hours a day for urgent care."
+        },
+        {
+          id: 'greeting',
+          keywords: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
+          answer: "Hello! I'm the Galen Assistant. Ask me about our services, hours, facilities, location, or how to get in touch."
+        },
+        {
+          id: 'thanks',
+          keywords: ['thank', 'thanks', 'cheers', 'appreciate'],
+          answer: "You're welcome! Is there anything else you'd like to know about Galen House Medical Centre?"
+        }
+      ];
+
+      const FALLBACK = "I don't have that information from the Galen House website. For anything specific, please call us on +263 292 881 051-4 or +263 716 544 233, message us on WhatsApp at +263 716 544 233, or email galenaccounts@gatorzw.co.uk.";
+
+      const SUGGESTIONS = [
+        "What are your opening hours?",
+        "What services do you offer?",
+        "Where are you located?",
+        "How can I pay?",
+        "Can I message you on WhatsApp?"
+      ];
+
+      function normalize(str) {
+        return str.toLowerCase().replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+
+      function findBestAnswer(query) {
+        const q = normalize(query);
+        if (!q) return "Could you type a question? For example, ask about our hours, services, or location.";
+        let best = null, bestScore = 0;
+        KB.forEach(entry => {
+          let score = 0;
+          entry.keywords.forEach(kw => {
+            if (q.includes(kw)) score += kw.length; // longer/more specific matches score higher
+          });
+          if (score > bestScore) {bestScore = score; best = entry;}
+        });
+        return best ? best.answer : FALLBACK;
+      }
+
+      const chatBody = document.getElementById('ghChatBody');
+      const chatForm = document.getElementById('ghChatForm');
+      const chatInput = document.getElementById('ghChatInput');
+      const chatWindow = document.getElementById('ghChatWindow');
+      const launcher = document.getElementById('ghChatLauncher');
+      const suggestRow = document.getElementById('ghSuggestRow');
+
+      function addMessage(text, who) {
+        const div = document.createElement('div');
+        div.className = 'gh-msg ' + who;
+        div.textContent = text;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      function renderSuggestions() {
+        suggestRow.innerHTML = '';
+        SUGGESTIONS.forEach(s => {
+          const chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'gh-suggest-chip';
+          chip.textContent = s;
+          chip.addEventListener('click', () => {
+            addMessage(s, 'user');
+            respondTo(s);
+          });
+          suggestRow.appendChild(chip);
+        });
+      }
+
+      function respondTo(query) {
+        setTimeout(() => {
+          addMessage(findBestAnswer(query), 'bot');
+        }, 250);
+      }
+
+      let started = false;
+      function openChat() {
+        chatWindow.classList.add('open');
+        chatWindow.setAttribute('aria-hidden', 'false');
+        launcher.classList.add('open');
+        launcher.setAttribute('aria-expanded', 'true');
+        if (!started) {
+          started = true;
+          addMessage("Hi, I'm the Galen Assistant. Ask me anything about Galen House Medical Centre — hours, services, facilities, location, payment or contact details.", 'bot');
+          renderSuggestions();
+        }
+        chatInput.focus();
+      }
+      function closeChat() {
+        chatWindow.classList.remove('open');
+        chatWindow.setAttribute('aria-hidden', 'true');
+        launcher.classList.remove('open');
+        launcher.setAttribute('aria-expanded', 'false');
+      }
+
+      launcher.addEventListener('click', () => {
+        if (chatWindow.classList.contains('open')) closeChat();
+        else openChat();
+      });
+
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = chatInput.value.trim();
+        if (!val) return;
+        addMessage(val, 'user');
+        chatInput.value = '';
+        respondTo(val);
+      });
+    })();
+  </script>
 
 </body>
+
 </html>
