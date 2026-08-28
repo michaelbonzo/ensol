@@ -12,6 +12,7 @@
     --ink-3:#182a1b;
     --lime:#c6ff4a;
     --lime-soft:#e8ffae;
+     --cream:#f7f2bcf1;
     --lime-deep:#5f8a24;
     --text:#f3f6ec;
     --text-soft:#98a693;
@@ -133,7 +134,7 @@
   }
 
   /* diagonal cut */
-  .cut{position:relative;background:var(--ink);clip-path:polygon(0 64px, 100% 0, 100% 100%, 0 100%);margin-top:-96px;padding-top:150px;border-top:1px solid var(--line);}
+  .cut{position:relative;background:var(--cream);clip-path:polygon(0 64px, 100% 0, 100% 100%, 0 100%);margin-top:-96px;padding-top:150px;border-top:1px solid var(--line);}
   @media (max-width:640px){.cut{clip-path:polygon(0 36px, 100% 0, 100% 100%, 0 100%);margin-top:-60px;padding-top:110px;}}
   .coverage{display:flex;flex-wrap:wrap;gap:36px;padding-bottom:56px;border-bottom:1px solid var(--line);}
   .coverage span{display:flex;align-items:center;gap:10px;font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12.5px;letter-spacing:0.04em;color:var(--text-soft);}
@@ -163,7 +164,7 @@
   .about-actions{display:flex;align-items:center;gap:28px;margin-top:26px;flex-wrap:wrap;}
 
   /* ================= SERVICES ================= */
-  .services{background:var(--ink);padding-bottom:110px;}
+  .services{background:var(--cream);padding-bottom:110px;}
   .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap;}
   .section-head h2{font-size:clamp(28px,3.6vw,40px);color:var(--text);line-height:1.1;}
   .section-head p{color:var(--text-soft);font-size:15px;max-width:340px;margin:0;}
@@ -275,8 +276,7 @@
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#top">
-      <svg class="mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 2L6 17H14L12 28L24 12H16L18.5 2H16.5Z" fill="#C6FF4A"/></svg>
-      ENSOL
+     <img src="logo.png" alt="" srcset="" style="width: 70px;">
     </a>
     <nav class="nav-links">
       <a href="#about">About</a>
@@ -296,11 +296,11 @@
     <div class="wrap">
       <div class="hero-copy">
         <div class="hero-idx">
-          <span class="n mono">01</span>
-          <p class="eyebrow on-dark" style="margin-bottom:0;">Efficient Electrical Energy Solutions</p>
+          
+          <p style="margin-bottom:0;">Efficient Electrical Energy Solutions</p>
         </div>
-        <h1>Power that keeps<br>working when <em>ZESA</em><br>doesn't.</h1>
-        <p>Ensol designs, sizes and installs electrical and solar systems built for Zimbabwe's grid — from borehole pumps to full industrial wiring, tested on site before we leave.</p>
+        <h1>Power that keeps<br>working.</h1>
+        <p>Ensol designs, sizes and installs electrical and solar systems built for Zimbabwe's gridfrom borehole pumps to full industrial wiring, tested on site before we leave.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contact">Get a Free Quote</a>
           <a class="btn-text" href="#services">
@@ -316,15 +316,14 @@
           <div class="trust-divider"></div>
           <div class="trust-note">
             <span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span>
-            <p>Every install tested on site before handover — no shortcuts.</p>
+            <p>Every install tested on site before handover, no shortcuts.</p>
           </div>
         </div>
       </div>
       <div class="hero-media">
         <div class="badge-chip"><span class="dot"></span> Licensed Electrical Technician</div>
-        <div class="frame">
-          <img src="https://images.pexels.com/photos/4254165/pexels-photo-4254165.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Solar technician installing a photovoltaic panel on a rooftop under a clear sky">
-        </div>
+        <div class="frame" style="border-top-left-radius: 516px;">
+         <img src="m.jpeg">     </div>
         <div class="spec-card">
           <div class="pct">0.5–100</div>
           <div class="lbl">kVA systems sized &amp; installed</div>
@@ -336,9 +335,9 @@
   <div class="cut">
     <div class="wrap">
       <div class="coverage">
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><b>Coverage</b> — Harare &amp; surrounds</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><b>Response</b> — same-week site visits</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><b>Standard</b> — tested &amp; signed off</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><b>Coverage</b>Harare &amp; surrounds</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><b>Response</b>same-week site visits</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><b>Standard</b>tested &amp; signed off</span>
       </div>
     </div>
 
@@ -353,10 +352,10 @@
               <div class="about-tag"><div class="name">Tafadzwa Musekiwa</div><div class="role">Lead Electrical Technician</div></div>
             </div>
             <div class="about-copy">
-              <p class="eyebrow on-dark">About Ensol</p>
-              <h2>One technician.<br>Every system, signed off personally.</h2>
+              <p>About Ensol</p>
+              <h2><br>Every system, signed off personally with our team.</h2>
               <div class="tag-pills"><span>Sizing</span><span>Install</span><span>Maintain</span></div>
-              <p>Ensol is built around a simple standard: the person who sizes your system is the same person who installs it, tests it, and stands behind it — from a single household rewire to a full industrial installation.</p>
+              <p>Ensol is built around a simple standard: our team sizes your system and installs it, tests it, and stands behind it from a single household rewire to a full industrial installation.</p>
               <p>No subcontracted crews, no guesswork sizing. Just electrical and solar work done to spec, for homes, farms and businesses across Zimbabwe.</p>
               <div class="about-actions">
                 <a class="btn btn-primary" href="#contact">Get a Free Quote</a>
@@ -378,7 +377,7 @@
           <div class="rail"></div><div class="node" style="top:6px;"></div>
           <div class="section-head">
             <div>
-              <p class="eyebrow on-dark">What We Do</p>
+              <p class="">What We Do</p>
               <h2>Our Services</h2>
             </div>
             <div class="arrow-nav">
@@ -432,7 +431,7 @@
   <!-- ================= FEATURE (editorial) ================= -->
   <section class="feature">
     <div class="wrap">
-      <p class="eyebrow on-dark">Built For Zimbabwe's Grid</p>
+      <p class="">Built For Zimbabwe's Grid</p>
       <h2>Systems designed to outlast<br>the outages, not just survive them.</h2>
       <div class="feature-grid">
         <div class="feature-labels">
@@ -457,7 +456,7 @@
   <!-- ================= PROCESS ================= -->
   <section class="process" id="process">
     <div class="wrap">
-      <p class="eyebrow on-dark">How We Work</p>
+      <p class="">How We Work</p>
       <h2 style="font-size:clamp(28px,3.6vw,40px);max-width:600px;">A fixed sequence, because guesswork is how systems fail.</h2>
       <div class="proc-grid">
         <div class="proc-step"><span class="idx mono">01 — Assess</span><h3>Site visit &amp; load audit</h3><p>We walk the property, check your current wiring or system, and measure what you actually draw — day and night.</p></div>
@@ -479,8 +478,8 @@
 
   <!-- ================= TESTIMONIALS ================= -->
   <section class="testi">
-    <div class="wrap">
-      <p class="eyebrow on-dark">Client Feedback</p>
+    <div class="wrap" style="background-color: var(--cream);">
+      <p >Client Feedback</p>
       <div class="testi-layout">
         <div class="testi-intro">
           <h2>Voices from<br>the field</h2>
@@ -510,7 +509,7 @@
   <section class="cta-banner" id="quote">
     <img src="https://images.pexels.com/photos/6040783/pexels-photo-6040783.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Technician installing solar panels on a rooftop in daylight">
     <div class="cta-inner">
-      <p class="eyebrow on-dark">Ready When You Are</p>
+      <p >Ready When You Are</p>
       <h2>Stop losing power<br>to load-shedding.</h2>
       <div class="cta-bottom">
         <div class="cta-note">
