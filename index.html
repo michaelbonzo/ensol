@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="favicon.png" type="image" sizes="32x32">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ensol — Electrical & Solar Systems</title>
+
 <style>
   :root{
     --bg:#07090a;
@@ -137,9 +139,9 @@
   .cut{position:relative;background:var(--cream);clip-path:polygon(0 64px, 100% 0, 100% 100%, 0 100%);margin-top:-96px;padding-top:150px;border-top:1px solid var(--line);}
   @media (max-width:640px){.cut{clip-path:polygon(0 36px, 100% 0, 100% 100%, 0 100%);margin-top:-60px;padding-top:110px;}}
   .coverage{display:flex;flex-wrap:wrap;gap:36px;padding-bottom:56px;border-bottom:1px solid var(--line);}
-  .coverage span{display:flex;align-items:center;gap:10px;font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12.5px;letter-spacing:0.04em;color:var(--text-soft);}
-  .coverage span svg{color:var(--lime);flex:none;}
-  .coverage span b{color:var(--text);font-weight:500;}
+  .coverage span{display:flex;align-items:center;gap:10px;font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:32.5px;letter-spacing:0.04em;color:var(--text-soft);}
+  .coverage span svg{color:black;flex:none;}
+  .coverage span b{color:black;font-weight:500;}
 
   .rail-section{position:relative;padding-left:56px;}
   .rail{position:absolute;left:14px;top:0;bottom:0;width:1px;background:var(--line);}
@@ -202,6 +204,34 @@
   .feature-copy p{font-size:14.5px;color:var(--text-soft);margin-bottom:18px;}
   .feature-meta{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-family:'Calibri','Carlito','Segoe UI',sans-serif;font-size:12px;color:var(--text-soft);}
   .feature-meta b{color:var(--text);font-weight:500;}
+
+  /* ---------- feature carousel ---------- */
+  .feature-carousel{position:relative;overflow:hidden;}
+  .feature-track{display:flex;align-items:flex-start;transition:transform .95s cubic-bezier(.65,0,.34,1);will-change:transform;}
+  .feature-track .feature-slide{flex:0 0 100%;min-width:0;visibility:hidden;pointer-events:none;transition:visibility 0s linear .65s;}
+  .feature-track .feature-slide.is-active{visibility:visible;pointer-events:auto;transition-delay:0s;}
+  .feature-slide .feature-grid > *{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease;}
+  .feature-slide.is-active .feature-grid > *{opacity:1;transform:translateY(0);}
+  .feature-slide .feature-grid > *:nth-child(1){transition-delay:.05s;}
+  .feature-slide .feature-grid > *:nth-child(2){transition-delay:.15s;}
+  .feature-slide .feature-grid > *:nth-child(3){transition-delay:.25s;}
+  .feature-eyebrow,.feature-slide > h2{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .feature-slide.is-active .feature-eyebrow{opacity:1;transform:translateY(0);}
+  .feature-slide.is-active > h2{opacity:1;transform:translateY(0);transition-delay:.08s;}
+  .feature-img{position:relative;}
+  .feature-slide.is-active .feature-img img{animation:featureImgIn 1.1s cubic-bezier(.22,.61,.36,1) both;}
+  @keyframes featureImgIn{from{transform:scale(1.12);filter:grayscale(45%) contrast(1.05) brightness(.85);}to{transform:scale(1);filter:grayscale(45%) contrast(1.05) brightness(1);}}
+  .feature-dots{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:48px;}
+  .feature-dot{width:38px;height:4px;border-radius:var(--r-full);background:var(--line);border:none;padding:0;cursor:pointer;position:relative;overflow:hidden;transition:background .25s ease;}
+  .feature-dot:hover{background:rgba(243,246,236,0.28);}
+  .feature-dot::after{content:"";position:absolute;inset:0;background:var(--lime);transform:scaleX(0);transform-origin:left;border-radius:inherit;}
+  .feature-dot.is-active::after{animation:featureProgress 5s linear forwards;}
+  .feature-carousel.is-paused .feature-dot.is-active::after{animation-play-state:paused;}
+  @keyframes featureProgress{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+  @media (prefers-reduced-motion: reduce){
+    .feature-slide .feature-grid > *,.feature-eyebrow,.feature-slide > h2{opacity:1 !important;transform:none !important;}
+    .feature-slide.is-active .feature-img img{animation:none;}
+  }
 
   /* ================= PROCESS ================= */
   .process{background:var(--ink);padding:100px 0;border-top:1px solid var(--line);}
@@ -297,10 +327,10 @@
       <div class="hero-copy">
         <div class="hero-idx">
           
-          <p style="margin-bottom:0;">Efficient Electrical Energy Solutions</p>
+          <p style="margin-bottom:0; color: #c6ff4a;">Efficient Electrical Energy Solutions</p>
         </div>
         <h1>Power that keeps<br>working.</h1>
-        <p>Ensol designs, sizes and installs electrical and solar systems built for Zimbabwe's gridfrom borehole pumps to full industrial wiring, tested on site before we leave.</p>
+        <p>Ensol designs, sizes and installs electrical and solar systems built for Zimbabwe's grid from borehole pumps to full industrial wiring, tested on site before we leave.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contact">Get a Free Quote</a>
           <a class="btn-text" href="#services">
@@ -335,7 +365,7 @@
   <div class="cut">
     <div class="wrap">
       <div class="coverage">
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><b>Coverage</b>Harare &amp; surrounds</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><b>Coverage</b>Bulawayo &amp; surrounds</span>
         <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><b>Response</b>same-week site visits</span>
         <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><b>Standard</b>tested &amp; signed off</span>
       </div>
@@ -345,14 +375,14 @@
     <section class="about" id="about">
       <div class="wrap">
         <div class="rail-section">
-          <div class="rail"></div><div class="node" style="top:6px;"></div>
+          
           <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;">
-            <div class="about-media">
-              <div class="frame"><img src="https://images.pexels.com/photos/4254164/pexels-photo-4254164.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Electrical technician in safety gear installing a solar panel"></div>
-              <div class="about-tag"><div class="name">Tafadzwa Musekiwa</div><div class="role">Lead Electrical Technician</div></div>
+            <div class="about-media" style="background: url(logo2.png) no-repeat center">
+              <div class="frame"></div>
+              
             </div>
             <div class="about-copy">
-              <p>About Ensol</p>
+              <p style="font-size: larger; color: #c6ff4a;">About Ensol</p>
               <h2><br>Every system, signed off personally with our team.</h2>
               <div class="tag-pills"><span>Sizing</span><span>Install</span><span>Maintain</span></div>
               <p>Ensol is built around a simple standard: our team sizes your system and installs it, tests it, and stands behind it from a single household rewire to a full industrial installation.</p>
@@ -374,11 +404,11 @@
     <section class="services" id="services">
       <div class="wrap">
         <div class="rail-section">
-          <div class="rail"></div><div class="node" style="top:6px;"></div>
+
           <div class="section-head">
             <div>
-              <p class="">What We Do</p>
-              <h2>Our Services</h2>
+       
+              <h2 style="color: #07090a;">Our Services</h2>
             </div>
             <div class="arrow-nav">
               <button class="arrow-btn" id="svcPrev" aria-label="Previous services"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -391,8 +421,15 @@
           <div class="svc-card">
             <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 3h-6v6"/></svg></div>
             <span class="svc-code">SZ / 01</span>
-            <h3>System Sizing</h3>
+            <h3>Assessing, System Sizing and Planning</h3>
             <p>A proper load audit before anything is quoted — matched to what you actually use.</p>
+            <span class="lnk">Learn More →</span>
+          </div>
+           <div class="svc-card">
+            <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 0 0-1.4l-1.6-1.6a1 1 0 0 0-1.4 0L13.1 3.3a1 1 0 0 0 0 1.4z"/><path d="M9.6 12.6l-6.4 6.4a2 2 0 1 0 2.8 2.8l6.4-6.4M11 8L3.5 15.5"/></svg></div>
+            <span class="svc-code">MT / 03</span>
+            <h3>Designing, Maintenance &amp; Repairs</h3>
+            <p>Fault-finding, panel servicing and breakdown callouts to keep systems running.</p>
             <span class="lnk">Learn More →</span>
           </div>
           <div class="svc-card">
@@ -400,13 +437,6 @@
             <span class="svc-code">SL / 02</span>
             <h3>Solar Installations</h3>
             <p>Panel, inverter and battery installs — mounted, wired and commissioned to standard.</p>
-            <span class="lnk">Learn More →</span>
-          </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 0 0-1.4l-1.6-1.6a1 1 0 0 0-1.4 0L13.1 3.3a1 1 0 0 0 0 1.4z"/><path d="M9.6 12.6l-6.4 6.4a2 2 0 1 0 2.8 2.8l6.4-6.4M11 8L3.5 15.5"/></svg></div>
-            <span class="svc-code">MT / 03</span>
-            <h3>Maintenance &amp; Repairs</h3>
-            <p>Fault-finding, panel servicing and breakdown callouts to keep systems running.</p>
             <span class="lnk">Learn More →</span>
           </div>
           <div class="svc-card">
@@ -428,27 +458,134 @@
     </section>
   </div><!-- /.cut -->
 
-  <!-- ================= FEATURE (editorial) ================= -->
-  <section class="feature">
-    <div class="wrap">
-      <p class="">Built For Zimbabwe's Grid</p>
-      <h2>Systems designed to outlast<br>the outages, not just survive them.</h2>
-      <div class="feature-grid">
-        <div class="feature-labels">
-          <span>Sizing</span><span>Wiring</span><span>Solar</span>
-        </div>
-        <div class="feature-img">
-          <img src="https://images.pexels.com/photos/17842832/pexels-photo-17842832.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Electrical technician working on a distribution board">
-        </div>
-        <div class="feature-copy">
-          <h3>Why sizing comes before anything else</h3>
-          <p>Most system failures trace back to one thing — a system that was never sized for the load it needed to carry. Every Ensol job starts with a walk-through and a proper audit, not a price list.</p>
-          <a class="btn-text" href="#contact">Get a Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-          <div class="feature-meta">
-            <span>Est. <b>2019</b></span>
-            <span>By <b>Tafadzwa Musekiwa</b></span>
+  <!-- ================= FEATURE (editorial carousel) ================= -->
+  <section class="feature" id="feature">
+    <div class="feature-carousel" id="featureCarousel">
+      <div class="feature-track" id="featureTrack">
+
+        <!-- Slide 1 / 5 — System Sizing -->
+        <div class="wrap feature-slide">
+          <p class="feature-eyebrow" style="color: #c6ff4a;">Built For You</p>
+          <h2>Systems designed to outlast<br>the outages, not just survive them.</h2>
+          <div class="feature-grid">
+            <div class="feature-labels">
+              <span>Sizing</span><span>Load</span><span>Audit</span>
+            </div>
+            <div class="feature-img">
+              <img src="4.jpeg" alt="Electrical technician working on a distribution board">
+            </div>
+            <div class="feature-copy">
+              <h3>Why sizing comes before anything else</h3>
+              <p>Most system failures trace back to one thing — a system that was never sized for the load it needed to carry. Every Ensol job starts with a walk-through and a proper audit, not a price list.</p>
+              <a class="btn-text" href="#contact">Get a Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+              <div class="feature-meta">
+                <span>Est. <b>2019</b></span>
+                <span>By <b>Tafadzwa Musekiwa</b></span>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Slide 2 / 5 — Solar Installations -->
+        <div class="wrap feature-slide">
+          <p class="feature-eyebrow" style="color: #c6ff4a;">Built For You</p>
+          <h2>Panels, inverters, batteries —<br>commissioned, not just mounted.</h2>
+          <div class="feature-grid">
+            <div class="feature-labels">
+              <span>Panels</span><span>Inverter</span><span>Battery</span>
+            </div>
+            <div class="feature-img">
+              <img src="22.jpeg" alt="Technician installing solar panels on a rooftop in daylight">
+            </div>
+            <div class="feature-copy">
+              <h3>Tested under load, not left to hope</h3>
+              <p>Every panel, inverter and battery bank is run under real load before we sign off — so the system performs on day one, not just on the spec sheet.</p>
+              <a class="btn-text" href="#contact">Get a Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+              <div class="feature-meta">
+                <span>Panels <b>Tested</b></span>
+                <span>Under <b>Full Load</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 / 5 — Maintenance & Repairs -->
+        <div class="wrap feature-slide" style="padding-left: 10%;">
+          <p class="feature-eyebrow" style="color: #c6ff4a;">Built For You</p>
+          <h2>Fault-finding that fixes<br>the cause, not the symptom.</h2>
+          <div class="feature-grid">
+            <div class="feature-labels">
+              <span>Diagnose</span><span>Repair</span><span>Service</span>
+            </div>
+            <div class="feature-img">
+              <img src="33.jpeg" alt="Technician servicing an electrical distribution panel">
+            </div>
+            <div class="feature-copy">
+              <h3>Breakdowns handled before they escalate</h3>
+              <p>A callout starts with tracing the fault to its source, not patching what's visible. Regular panel servicing keeps small issues from turning into outages.</p>
+              <a class="btn-text" href="#contact">Get a Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+              <div class="feature-meta">
+                <span>Response <b>&lt;48hrs</b></span>
+                <span>By <b>Tafadzwa Musekiwa</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 / 5 — House & Industrial Wiring -->
+        <div class="wrap feature-slide" style="padding-left: 10%;">
+          <p class="feature-eyebrow" style="color: #c6ff4a;">Built For You</p>
+          <h2>Wired to standard,<br>signed off on site.</h2>
+          <div class="feature-grid">
+            <div class="feature-labels">
+              <span>Plan</span><span>Wire</span><span>Certify</span>
+            </div>
+            <div class="feature-img">
+              <img src="44.jpeg" alt="Electrician running new wiring in a residential build">
+            </div>
+            <div class="feature-copy">
+              <h3>Built around how the space is used</h3>
+              <p>New wiring, rewires and industrial upgrades — planned around real usage, then certified and walked through before we hand back the keys.</p>
+              <a class="btn-text" href="#contact">Get a Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+              <div class="feature-meta">
+                <span>Covers <b>Homes</b></span>
+                <span>&amp; <b>Factories</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 / 5 — Borehole Installations -->
+        <div class="wrap feature-slide" style="padding-left: 10%;">
+          <p class="feature-eyebrow" style="color: #c6ff4a;">Built For You</p>
+          <h2>Water security that doesn't<br>depend on the grid.</h2>
+          <div class="feature-grid">
+            <div class="feature-labels">
+              <span>Pump</span><span>Wire</span><span>Solar</span>
+            </div>
+            <div class="feature-img">
+              <img src="55.jpeg" alt="Submersible borehole pump wiring powered by solar">
+            </div>
+            <div class="feature-copy">
+              <h3>Reliable water through load-shedding</h3>
+              <p>Submersible pump wiring and solar-powered borehole systems, sized to keep water running whether or not the grid does.</p>
+              <a class="btn-text" href="#contact">Get a Free Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+              <div class="feature-meta">
+                <span>Built for <b>Off-Grid</b></span>
+                <span>By <b>Tafadzwa Musekiwa</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.feature-track -->
+
+      <div class="feature-dots" id="featureDots" role="tablist" aria-label="Feature slides">
+        <button class="feature-dot" type="button" role="tab" aria-label="Go to slide 1"></button>
+        <button class="feature-dot" type="button" role="tab" aria-label="Go to slide 2"></button>
+        <button class="feature-dot" type="button" role="tab" aria-label="Go to slide 3"></button>
+        <button class="feature-dot" type="button" role="tab" aria-label="Go to slide 4"></button>
+        <button class="feature-dot" type="button" role="tab" aria-label="Go to slide 5"></button>
       </div>
     </div>
   </section>
@@ -456,7 +593,7 @@
   <!-- ================= PROCESS ================= -->
   <section class="process" id="process">
     <div class="wrap">
-      <p class="">How We Work</p>
+      <p class="" style="color: #c6ff4a;">How We Work</p>
       <h2 style="font-size:clamp(28px,3.6vw,40px);max-width:600px;">A fixed sequence, because guesswork is how systems fail.</h2>
       <div class="proc-grid">
         <div class="proc-step"><span class="idx mono">01 — Assess</span><h3>Site visit &amp; load audit</h3><p>We walk the property, check your current wiring or system, and measure what you actually draw — day and night.</p></div>
@@ -471,18 +608,20 @@
     <div class="wrap">
       <div class="stat"><div class="n">5+</div><div class="l">Years in the Field</div></div>
       <div class="stat"><div class="n">50+</div><div class="l">Installations Completed</div></div>
-      <div class="stat"><div class="n">24/7</div><div class="l">Emergency Callouts</div></div>
       <div class="stat"><div class="n">100%</div><div class="l">Tested Before Handover</div></div>
     </div>
   </section>
 
   <!-- ================= TESTIMONIALS ================= -->
   <section class="testi">
-    <div class="wrap" style="background-color: var(--cream);">
-      <p >Client Feedback</p>
+   
+   
+   <div class="wrap" style="background-color: var(--cream);">
+    <br>
+      <!--<p >Client Feedback</p>-->
       <div class="testi-layout">
         <div class="testi-intro">
-          <h2>Voices from<br>the field</h2>
+          <h2 style="color: #07090a;">Voices from<br>the field</h2>
           <div class="dash"></div>
           <p>Here's what clients say after the power stays on — from homeowners to farm and factory operators across Zimbabwe.</p>
         </div>
@@ -501,15 +640,17 @@
           </div>
         </div>
       </div>
-      <p class="testi-note">Sample testimonials shown for layout — replace with real client feedback before publishing.</p>
+<br>
+      <p></p>
+      <!--<p class="testi-note">Sample testimonials shown for layout — replace with real client feedback before publishing.</p>-->
     </div>
   </section>
 
   <!-- ================= CTA BANNER ================= -->
   <section class="cta-banner" id="quote">
-    <img src="https://images.pexels.com/photos/6040783/pexels-photo-6040783.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Technician installing solar panels on a rooftop in daylight">
+    <img src="3.jpeg" alt="Technician installing solar panels on a rooftop in daylight">
     <div class="cta-inner">
-      <p >Ready When You Are</p>
+      <p style="color: #c6ff4a;">Ready When You Are</p>
       <h2>Stop losing power<br>to load-shedding.</h2>
       <div class="cta-bottom">
         <div class="cta-note">
@@ -517,7 +658,7 @@
           <p>Get a proper load audit and a straight quote — no oversized systems, no pressure.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="mailto:tafmsekiwa7@gmail.com">Email for a Quote</a>
+          <a class="btn btn-primary" href="mailto:info@ensol.com">Email for a Quote</a>
           <a class="btn btn-outline" href="tel:+263713743522">Call 071 374 3522</a>
         </div>
       </div>
@@ -531,16 +672,16 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-col">
-        <div class="foot-logo"><svg width="26" height="26" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 2L6 17H14L12 28L24 12H16L18.5 2H16.5Z" fill="#C6FF4A"/></svg>ENSOL</div>
+        <div class="foot-logo"><img src="logo.png" alt="" srcset="" style="width: 70px;"></div>
         <p style="max-width:260px;">Efficient electrical and solar energy solutions — sized, installed and tested by Tafadzwa Musekiwa, Electrical Technician.</p>
         <div class="foot-social">
-          <a href="mailto:tafmsekiwa7@gmail.com" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></a>
+          <a href="mailto:info@ensol.com" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></a>
           <a href="tel:+263713743522" aria-label="Call"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
         </div>
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
-        <div class="foot-contact-item"><span class="k">Email</span><a href="mailto:tafmsekiwa7@gmail.com">tafmsekiwa7@gmail.com</a></div>
+        <div class="foot-contact-item"><span class="k">Email</span><a href="mailto:tafmsekiwa7@gmail.com">info@ensol.com</a></div>
         <div class="foot-contact-item"><span class="k">Phone</span><a href="tel:+263713743522">+263 71 374 3522</a></div>
         <div class="foot-contact-item"><span class="k">Phone</span><a href="tel:+263772659009">+263 77 265 9009</a></div>
       </div>
@@ -574,7 +715,7 @@
 
     <div class="foot-bottom">
       <span>© 2026 Ensol Electrical &amp; Solar Systems. All rights reserved.</span>
-      <span>SZ-01 · SL-02 · MT-03 · WR-04 · BH-05</span>
+    
     </div>
   </div>
 </footer>
@@ -597,6 +738,136 @@
     prev.addEventListener('click', () => track.scrollBy({left: -scrollAmt(), behavior:'smooth'}));
     next.addEventListener('click', () => track.scrollBy({left: scrollAmt(), behavior:'smooth'}));
   }
+
+  /* ---------- feature carousel: auto-advancing, infinite, swipeable ---------- */
+  (function(){
+    const carousel = document.getElementById('featureCarousel');
+    const ftrack   = document.getElementById('featureTrack');
+    const dotsWrap = document.getElementById('featureDots');
+    if (!carousel || !ftrack || !dotsWrap) return;
+
+    const slides = Array.from(ftrack.querySelectorAll('.feature-slide'));
+    const dots   = Array.from(dotsWrap.children);
+    const total  = slides.length;
+    const DURATION = 5000;
+
+    // lock the carousel to the height of its tallest slide so every slide —
+    // including the last four — renders fully, with nothing clipped or shifted
+    function syncHeight(){
+      let max = 0;
+      slides.forEach(s => { max = Math.max(max, s.scrollHeight); });
+      ftrack.style.minHeight = max + 'px';
+    }
+    syncHeight();
+    window.addEventListener('resize', () => {
+      clearTimeout(window.__featureResizeT);
+      window.__featureResizeT = setTimeout(syncHeight, 150);
+    });
+    window.addEventListener('load', syncHeight);
+
+    // clone the first slide and append it, so the loop back to slide 1 is seamless
+    const loopClone = slides[0].cloneNode(true);
+    loopClone.setAttribute('aria-hidden', 'true');
+    loopClone.querySelectorAll('a, button').forEach(el => el.setAttribute('tabindex', '-1'));
+    ftrack.appendChild(loopClone);
+
+    let index = 0;
+    let timer = null;
+
+    function paint(realIndex){
+      slides.forEach((s, n) => s.classList.toggle('is-active', n === realIndex));
+      dots.forEach((d, n) => {
+        d.classList.remove('is-active');
+        d.setAttribute('aria-selected', n === realIndex ? 'true' : 'false');
+      });
+      void dots[realIndex].offsetWidth; // restart the progress-bar animation
+      dots[realIndex].classList.add('is-active');
+    }
+
+    function moveTo(i, animate){
+      ftrack.style.transition = animate === false ? 'none' : '';
+      ftrack.style.transform = `translateX(-${i * 100}%)`;
+    }
+
+    function goNext(){
+      index += 1;
+      moveTo(index);
+      paint(index % total); // pre-arms real slide 0 (clipped off-screen) + updates dots
+      if (index === total){
+        loopClone.classList.add('is-active'); // show the clone as it slides into view
+        ftrack.addEventListener('transitionend', function onEnd(e){
+          if (e.propertyName !== 'transform') return;
+          ftrack.removeEventListener('transitionend', onEnd);
+          loopClone.classList.remove('is-active'); // reset the clone for next loop
+          index = 0;
+          moveTo(0, false);
+        });
+      }
+    }
+
+    function goToSlide(n){
+      index = n;
+      moveTo(index);
+      paint(index);
+    }
+
+    function start(){
+      clearInterval(timer);
+      timer = setInterval(goNext, DURATION);
+      carousel.classList.remove('is-paused');
+    }
+    function stop(){
+      clearInterval(timer);
+      carousel.classList.add('is-paused');
+    }
+
+    dots.forEach((d, n) => {
+      d.addEventListener('click', () => { goToSlide(n); start(); });
+    });
+
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('focusout', start);
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? stop() : start();
+    });
+
+    // touch / pointer swipe
+    let dragging = false, startX = 0, deltaX = 0;
+    carousel.addEventListener('pointerdown', e => {
+      dragging = true; startX = e.clientX; deltaX = 0;
+      ftrack.style.transition = 'none';
+      stop();
+    });
+    carousel.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      deltaX = e.clientX - startX;
+      ftrack.style.transform = `translateX(calc(-${index * 100}% + ${deltaX}px))`;
+    });
+    function endDrag(){
+      if (!dragging) return;
+      dragging = false;
+      ftrack.style.transition = '';
+      if (deltaX < -60 && index < total) {
+        goNext();
+      } else if (deltaX > 60 && index > 0) {
+        goToSlide(index - 1);
+      } else if (deltaX > 60 && index === 0) {
+        goToSlide(total - 1);
+      } else {
+        moveTo(index);
+      }
+      start();
+    }
+    carousel.addEventListener('pointerup', endDrag);
+    carousel.addEventListener('pointerleave', () => { if (dragging) endDrag(); });
+
+    // init
+    moveTo(0, false);
+    paint(0);
+    start();
+  })();
 </script>
 
 </body>
